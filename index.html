@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shi Stone</title>
+  <style>
+    :root {
+      --blue:   #1a5276;
+      --ice:    #aed6f1;
+      --snow:   #f0f4f8;
+      --text:   #1c1c1e;
+      --muted:  #555;
+      --border: #cdd3da;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: #fff;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* Header */
+    .site-header {
+      margin-bottom: 3rem;
+      border-bottom: 2px solid var(--ice);
+      padding-bottom: 1.25rem;
+    }
+    .site-header h1 {
+      font-size: 1.75rem;
+      color: var(--blue);
+      letter-spacing: -.5px;
+    }
+    .site-header p {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-top: .3rem;
+    }
+
+    /* Category */
+    .category { margin-bottom: 2.5rem; }
+    .category-title {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .9rem;
+    }
+
+    /* Article row */
+    .article-list { list-style: none; }
+    .article-list li { border-top: 1px solid var(--border); }
+    .article-list li:last-child { border-bottom: 1px solid var(--border); }
+    .article-link {
+      display: block;
+      padding: .85rem .25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: background .12s;
+    }
+    .article-link:hover { background: var(--snow); }
+    .article-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--blue);
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .35rem;
+      margin-top: .3rem;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--ice);
+      color: var(--blue);
+      border-radius: 3px;
+      padding: .1rem .45rem;
+      font-size: .75rem;
+    }
+    .reviewed {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-left: .25rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Shi Stone</h1>
+  <p>Field notes on mountaineering and the outdoors.</p>
+</header>
+
+<main>
+  <section class="category">
+    <p class="category-title">Mountaineering</p>
+    <ul class="article-list">
+      <li>
+        <a class="article-link" href="mountaineer/glacier-travel/rope-team-travel.html">
+          <div class="article-title">Glacier Travel — Rope Team Travel</div>
+          <div class="article-meta">
+            <span class="tag">glacier-rope-travel</span>
+            <span class="tag">snow-travel</span>
+            <span class="reviewed">Last reviewed: 2026-05-10</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+</main>
+
+</body>
+</html>

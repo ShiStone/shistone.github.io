@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glacier Travel — Rope Team Travel</title>
+  <style>
+    :root {
+      --blue:   #1a5276;
+      --ice:    #aed6f1;
+      --snow:   #f0f4f8;
+      --text:   #1c1c1e;
+      --muted:  #555;
+      --warn:   #922b21;
+      --accent: #1a5276;
+      --border: #cdd3da;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: #fff;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    h1 { font-size: 2rem; color: var(--blue); margin-bottom: .25rem; }
+    .subtitle { color: var(--muted); font-size: .95rem; margin-bottom: 2rem; }
+    h2 {
+      font-size: 1.35rem;
+      color: var(--blue);
+      border-bottom: 2px solid var(--ice);
+      padding-bottom: .3rem;
+      margin: 2.5rem 0 1rem;
+    }
+    h3 { font-size: 1.05rem; color: var(--accent); margin: 1.5rem 0 .5rem; }
+    p { margin-bottom: .85rem; }
+    ul, ol { margin: .5rem 0 1rem 1.5rem; }
+    li { margin-bottom: .3rem; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .92rem; }
+    th { background: var(--blue); color: #fff; padding: .5rem .75rem; text-align: left; }
+    td { padding: .45rem .75rem; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) td { background: var(--snow); }
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: var(--snow);
+      padding: .75rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .warn {
+      border-left-color: var(--warn);
+      background: #fdf2f2;
+    }
+    .callout strong { display: block; margin-bottom: .3rem; }
+    .warn-block {
+      background: #fdf2f2;
+      border: 2px solid var(--warn);
+      border-radius: 6px;
+      padding: .85rem 1.1rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+    .warn-block strong { color: var(--warn); font-size: 1.05rem; }
+    .diagram {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .diagram figcaption {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-top: .5rem;
+    }
+    .photo {
+      margin: 1.25rem 0;
+    }
+    .photo img {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .photo figcaption {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-top: .4rem;
+    }
+    .photo figcaption a { color: var(--accent); }
+    .toc {
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .toc h2 { margin-top: 0; border: none; font-size: 1rem; }
+    .toc ol { margin: .25rem 0 0 1.25rem; }
+    .toc li { margin-bottom: .15rem; font-size: .93rem; }
+    .toc a { color: var(--accent); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    .sources { font-size: .88rem; color: var(--muted); }
+    .sources a { color: var(--accent); }
+    .sources li { margin-bottom: .4rem; }
+    .tag {
+      display: inline-block;
+      background: var(--ice);
+      color: var(--blue);
+      border-radius: 3px;
+      padding: .1rem .45rem;
+      font-size: .8rem;
+      margin-right: .3rem;
+    }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+    .breadcrumb {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb .sep { margin: 0 .4rem; color: var(--border); }
+    .video-link {
+      display: inline-block;
+      align-items: center;
+      gap: .4rem;
+      font-size: .85rem;
+      text-decoration: none;
+      color: var(--accent);
+      margin-top: .35rem;
+    }
+    .video-link:hover { text-decoration: underline; }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: .75rem 0 1rem;
+    }
+    .video-card {
+      max-width: 420px;
+    }
+    .video-card p {
+      margin: .35rem 0 0;
+      font-size: .9rem;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    .video-frame {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #000;
+    }
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .video-local-fallback {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      text-decoration: none;
+      overflow: hidden;
+    }
+    .video-local-fallback img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: .78;
+    }
+    .video-local-fallback span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, .72);
+      border-radius: 4px;
+      padding: .45rem .65rem;
+      font-size: .85rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="../../index.html">Shi Stone</a>
+  <span class="sep">/</span>
+  <span>Mountaineering</span>
+  <span class="sep">/</span>
+  <span>Glacier Travel</span>
+</nav>
+
+<h1>Glacier Travel — Rope Team Travel</h1>
+<p class="subtitle">
+  <span class="tag">glacier-rope-travel</span>
+  <span class="tag">snow-travel</span>
+  &nbsp;Last reviewed: 2026-05-10
+</p>
+
+<div class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#setup">Rope Team Setup</a></li>
+    <li><a href="#moving">Moving as a Rope Team</a></li>
+    <li><a href="#fall">Immediate Fall Response</a></li>
+    <li><a href="#running-belay">Running Belay</a></li>
+    <li><a href="#crossing">Snow Bridge and Crevasse Crossing</a></li>
+    <li><a href="#route">Route Finding Through Crevasse Fields</a></li>
+    <li><a href="#hazards">Objective Hazard Avoidance</a></li>
+    <li><a href="#ascent">Ascending Steep Snow and Breaking Trail</a></li>
+    <li><a href="#descent">Descending Steep Snow</a></li>
+    <li><a href="#nutrition">Nutrition and Hydration</a></li>
+    <li><a href="#monitoring">Team Monitoring and Warning Signs</a></li>
+  </ol>
+</div>
+
+<p>Covers moving together as a roped team on a glacier: setup, movement, crossing hazards, route finding, terrain technique, and team health. Does not cover crevasse rescue, anchor building, or avalanche assessment.</p>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="setup">1. Rope Team Setup</h2>
+
+<h3>Team Size</h3>
+<p>A minimum of three people per rope team is recommended. Two survivors are needed to build a hauling system if someone falls into a crevasse. Two-person glacier travel is higher risk and requires advanced rescue proficiency. Solo glacier travel is not recommended.</p>
+
+<h3>Crevasse Width Drives Rope Spacing</h3>
+
+<p>The single most important factor in rope spacing is the <strong>expected crevasse width for the specific glacier</strong>. The goal: only one person crosses a snow bridge at a time while the rest can arrest a fall.</p>
+
+<p><strong>WCR / Mountaineers formula (from WCR Deck 2):</strong></p>
+<ul>
+  <li><strong>3+ person team:</strong> interval = crevasse width + 0.5–1 m</li>
+  <li><strong>2-person team:</strong> interval = crevasse width × 1.25 (25% longer than the crevasse)</li>
+  <li>Add ~5 m for tie-in knots and rescue throw rope</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mountain / Region</th>
+      <th>Avg crevasse width</th>
+      <th>Interval (3-person)</th>
+      <th>Min rope</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Cascades — Baker, Rainier</td><td>8–10 m</td><td>10–11 m</td><td>50 m</td></tr>
+    <tr><td>Canadian Rockies, Andes</td><td>5–8 m</td><td>6–9 m</td><td>50 m</td></tr>
+    <tr><td>Grand Teton area glaciers</td><td>5–12 m</td><td>6–13 m</td><td>50–60 m</td></tr>
+    <tr><td>Alaska Range — Denali</td><td>up to 30 m (100 ft)</td><td><em>put all rope out</em></td><td>60 m</td></tr>
+    <tr><td>Himalaya</td><td>up to 30 m+</td><td><em>put all rope out</em></td><td>60 m</td></tr>
+  </tbody>
+</table>
+
+<p style="font-size:.85rem; color:var(--muted)">Baker/Kulshan sizing from WCR Deck 2. Alaska/Himalaya per American Alpine Institute. When in doubt, err toward more spacing.</p>
+
+<!-- DIAGRAM: Rope spacing by crevasse width -->
+<figure class="diagram">
+  <svg viewBox="0 0 780 310" width="100%" style="max-width:780px;" xmlns="http://www.w3.org/2000/svg">
+    <rect width="780" height="310" fill="#f0f4f8" rx="8"/>
+    <text x="390" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5276">Rope Spacing — Crevasse Width Sets the Interval</text>
+
+    <!-- Snow surface -->
+    <rect x="30" y="55" width="720" height="22" fill="#d6eaf8" rx="3"/>
+    <text x="50" y="70" font-size="10" fill="#1a5276">Snow surface</text>
+
+    <!-- Crevasse gap -->
+    <rect x="330" y="55" width="120" height="22" fill="#1a5276" rx="2" opacity=".7"/>
+    <text x="390" y="70" text-anchor="middle" font-size="10" fill="white">Crevasse</text>
+
+    <!-- Crevasse width arrows -->
+    <line x1="330" y1="88" x2="450" y2="88" stroke="#922b21" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arrL)"/>
+    <text x="390" y="100" text-anchor="middle" font-size="10" fill="#922b21">crevasse width W</text>
+
+    <!-- Interval arrows (3-person, left span) -->
+    <line x1="140" y1="110" x2="330" y2="110" stroke="#1a5276" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrB)" marker-start="url(#arrBL)"/>
+    <text x="235" y="124" text-anchor="middle" font-size="10" fill="#1a5276">interval = W + 0.5–1 m</text>
+
+    <!-- Interval arrows (3-person, right span) -->
+    <line x1="450" y1="110" x2="640" y2="110" stroke="#1a5276" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrB)" marker-start="url(#arrBL)"/>
+    <text x="545" y="124" text-anchor="middle" font-size="10" fill="#1a5276">interval = W + 0.5–1 m</text>
+
+    <!-- Rope line -->
+    <line x1="70" y1="55" x2="70" y2="145" stroke="none"/>
+    <line x1="80" y1="55" x2="710" y2="55" stroke="#555" stroke-width="2"/>
+
+    <!-- Climbers: 3-person team -->
+    <circle cx="140" cy="55" r="14" fill="#1a5276"/>
+    <text x="140" y="59" text-anchor="middle" font-size="10" font-weight="bold" fill="white">1</text>
+    <text x="140" y="48" text-anchor="middle" font-size="9" fill="#1a5276">Leader</text>
+
+    <circle cx="390" cy="55" r="14" fill="#555"/>
+    <text x="390" y="59" text-anchor="middle" font-size="10" font-weight="bold" fill="white">2</text>
+    <text x="390" y="48" text-anchor="middle" font-size="9" fill="#555">crossing now</text>
+
+    <!-- X over crevasse crossing indicator -->
+    <text x="390" y="38" text-anchor="middle" font-size="11" fill="#922b21">one person crosses at a time</text>
+
+    <circle cx="640" cy="55" r="14" fill="#1a5276"/>
+    <text x="640" y="59" text-anchor="middle" font-size="10" font-weight="bold" fill="white">3</text>
+    <text x="640" y="48" text-anchor="middle" font-size="9" fill="#1a5276">Anchor</text>
+    <text x="640" y="37" text-anchor="middle" font-size="9" fill="#1a5276">(arrest-ready)</text>
+
+    <!-- Rescue coils -->
+    <rect x="108" y="43" width="18" height="8" rx="2" fill="#aed6f1" stroke="#1a5276"/>
+    <text x="117" y="38" font-size="8" fill="#1a5276">coil</text>
+    <rect x="654" y="43" width="18" height="8" rx="2" fill="#aed6f1" stroke="#1a5276"/>
+    <text x="663" y="38" font-size="8" fill="#1a5276">coil</text>
+
+    <!-- Baker example callout -->
+    <rect x="30" y="145" width="340" height="70" rx="6" fill="white" stroke="#aed6f1" stroke-width="1.5"/>
+    <text x="200" y="163" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a5276">Baker / Cascades example</text>
+    <text x="50" y="180" font-size="10" fill="#555">Crevasse width: 8–10 m (avg)</text>
+    <text x="50" y="195" font-size="10" fill="#555">3-person interval: 10–11 m</text>
+    <text x="50" y="210" font-size="10" fill="#555">Minimum rope: 50 m</text>
+
+    <!-- Denali example callout -->
+    <rect x="410" y="145" width="340" height="70" rx="6" fill="white" stroke="#922b21" stroke-width="1.5"/>
+    <text x="580" y="163" text-anchor="middle" font-size="11" font-weight="bold" fill="#922b21">Denali / Alaska Range</text>
+    <text x="430" y="180" font-size="10" fill="#555">Crevasse width: up to 30 m (100 ft)</text>
+    <text x="430" y="195" font-size="10" fill="#555">→ Put all rope out between climbers</text>
+    <text x="430" y="210" font-size="10" fill="#555">Minimum rope: 60 m</text>
+
+    <!-- Practical check -->
+    <rect x="30" y="230" width="720" height="50" rx="6" fill="#fffde7" stroke="#d4ac0d" stroke-width="1.5"/>
+    <text x="390" y="249" text-anchor="middle" font-size="11" font-weight="bold" fill="#7d6608">Practical check</text>
+    <text x="390" y="267" text-anchor="middle" font-size="10" fill="#555">Stand at the edge of the last bridge you crossed. Could the next person behind</text>
+    <text x="390" y="281" text-anchor="middle" font-size="10" fill="#555">you have reached the far side before you did? If not — you are too close together.</text>
+
+    <!-- Arrow defs -->
+    <defs>
+      <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#922b21"/>
+      </marker>
+      <marker id="arrL" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse">
+        <path d="M0,0 L0,6 L8,3 z" fill="#922b21"/>
+      </marker>
+      <marker id="arrB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#1a5276"/>
+      </marker>
+      <marker id="arrBL" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse">
+        <path d="M0,0 L0,6 L8,3 z" fill="#1a5276"/>
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>Figure 1 — Rope spacing is determined by expected crevasse width, not a fixed formula. Only one climber crosses a bridge at a time; the rest brace to arrest.</figcaption>
+</figure>
+
+<div class="callout">
+  <strong>Fast field spacing mnemonic</strong>
+  Some courses teach <code>10 - rope-team size</code> arm-length pulls between climbers: 4-person team = 6 pulls, 3-person team = 7 pulls. Treat this as a rough check, not the primary rule. Define the "arm length" before travel and verify it against measured spacing; a single short arm reach is too short, while a full arm-span / full rope pull varies by person. Expected crevasse width still controls final spacing.
+</div>
+
+<h3>Team Order</h3>
+
+<p>This topic has multiple valid perspectives. Decide the order deliberately and brief the reason before roping up.</p>
+
+<table>
+  <thead><tr><th>Situation</th><th>Front</th><th>Middle</th><th>Last / uphill anchor</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Ascending / traversing up</strong></td>
+      <td>Best route finder and pace setter</td>
+      <td>Least experienced or lightest if the ends are stronger</td>
+      <td>Strongest / heaviest if possible</td>
+    </tr>
+    <tr>
+      <td><strong>Descending</strong></td>
+      <td>Best route finder unless terrain demands otherwise</td>
+      <td>Least experienced if protected by strong ends</td>
+      <td>Strongest / heaviest, and ideally rescue-capable</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Direction-dependent adjustment:</strong> On ascent, the uphill / last climber has the best gravity-assisted arrest position. On descent, the strongest or heaviest climber usually stays last / uphill, because a heavy leader falling downhill is harder for lighter uphill climbers to stop.</p>
+
+<div class="callout">
+  <strong>Where the debate is</strong>
+  The best route finder may need to lead; the best rescuer may be most useful at the back where they can see the team and initiate response. If those are different people, choose based on the day's terrain and explicitly assign navigation, arrest, and rescue leadership roles.
+</div>
+
+<h3>Knots and Tie-In</h3>
+<ul>
+  <li><strong>Middle climbers:</strong> Butterfly knot at the rope's midpoint; clip to harness belay loop with one locking + one non-locking carabiner, gates opposed and reversed. Clip to the knot — do not thread rope directly through tie-in points, which is harder to manage in a rescue.</li>
+  <li><strong>End climbers:</strong> Figure-eight follow-through or bowline at the rope end.</li>
+  <li><strong>Two-person brake knots:</strong> Brake knots are primarily a two-person rope-team tactic. Tie 4–5 modified figure-eights on a bight between climbers, spaced roughly every 2 m. ENSA studies show these significantly reduce fall distance and make the surface-climber arrest easier. Each brake knot uses ~1 m of rope; dress each to a compact loop, not a large bight. For 3+ person teams, use knots only if the leader has trained that specific system and explains how it changes rope handling and rescue.</li>
+</ul>
+
+<h3>Prusik Backup</h3>
+<p>Each climber attaches a prusik loop from their harness to the rope ahead of them. The prusik rides passively while walking and grips under tension during a fall. Position it snug to the tie-in knot — close enough to load immediately.</p>
+
+<h3>Coiling the Tail</h3>
+<p>End climbers coil excess rope as a butterfly (chain) coil and secure it at the top of the pack or with a Voile strap externally. This coil is rescue rope — it must be immediately accessible, not buried inside the pack.</p>
+
+<h3>Pre-Travel Check</h3>
+<ul>
+  <li>Harness buckles doubled back</li>
+  <li>Tie-in knots dressed and set</li>
+  <li>Prusik attached and positioned</li>
+  <li>Crampons secure, no loose points</li>
+  <li>Ice axe leash on</li>
+  <li>Beacon on and confirmed in transmit mode</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="moving">2. Moving as a Rope Team</h2>
+
+<h3>Rope on the Downhill Side During a Traverse</h3>
+<p>On any traverse across a slope, the rope must run on the <strong>downhill side</strong> of the climbers. If the rope is on the uphill side and someone falls, the rope will sweep across the slope and can knock the rest of the team off their feet. With the rope on the downhill side, a falling climber pulls the team toward the slope — a recoverable arrest position.</p>
+
+<div class="callout">
+  On every direction change during a traverse, consciously check: <em>is the rope below me or above me?</em>
+</div>
+
+<h3>Rope Tension</h3>
+<p>The rope should hang at roughly 45° from the harness and just barely touch the snow — slightly taut, never coiled at your feet, never pulling your partner. You should feel the rope's weight, not be pulled by it.</p>
+<ul>
+  <li><strong>Too slack:</strong> Greater fall distance; more velocity when the rope loads.</li>
+  <li><strong>Too taut:</strong> Jerky movement, disrupts partner's balance; communicates nothing useful.</li>
+</ul>
+
+<div class="warn-block">
+  <strong>⚠️ Do Not Step on the Rope — This Is Your Lifeline</strong>
+  <p style="margin-top:.4rem">Never step on or over the rope. A rope walked on gets buried in snow, becomes extremely difficult to manage in an emergency, and can be damaged by crampon points. If the rope is at your feet, shout "rope" and let the team adjust tension before you step.</p>
+</div>
+
+<h3>Communication Signals</h3>
+<p>Verbal calls work in good conditions. <strong>Agree on rope-tug signals before travel for whiteout and darkness</strong> — your voice will not carry in wind, and you may not be able to see your partners even 10 m away. In a complete whiteout with high winds, the rope may be the only communication channel you have.</p>
+
+<table>
+  <thead><tr><th>Call</th><th>Tug signal</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>Stop</td><td>1 tug</td><td>Stop all movement now</td></tr>
+    <tr><td>Okay</td><td>2 tugs</td><td>Okay to move</td></tr>
+    <tr><td>Slack</td><td>Pull rope toward you</td><td>Give me rope (I need slack)</td></tr>
+    <tr><td>Up rope</td><td>Tug toward you</td><td>Take in rope</td></tr>
+    <tr><td>Falling!</td><td>Sudden strong pull</td><td>Arrest immediately</td></tr>
+    <tr><td>Rock! / Ice!</td><td>—</td><td>Overhead hazard — cover up, do not look up</td></tr>
+  </tbody>
+</table>
+
+<p>Negotiate your tug system before you leave the trailhead. Write it on tape on your axe shaft if you need a reminder.</p>
+
+<h3>Pace</h3>
+<p>Set a pace at which the <strong>slowest team member is not sweating</strong> — a sustainable aerobic zone, not an uncomfortable one. A sweating climber is working at their limit and will fatigue quickly. Better to go slower and arrive in good condition than to push pace and stop repeatedly.</p>
+
+<p><strong>Rest step</strong> (uphill): Lock the trailing knee completely straight after each step, hold for one full breath, exhale forcefully through pursed lips (pressure breathing), then advance. This loads the skeleton instead of the muscle. A team using the rest step consistently will outperform one that pushes hard and stops to recover.</p>
+
+<h3>Zigzag and Switchback Rope Behavior</h3>
+<p>When the team changes direction on a switchback, the rope behaves predictably but catches many teams off guard:</p>
+<ul>
+  <li><strong>When the leader turns:</strong> The rope becomes very slack — the leader is now moving toward the second climber instead of away.</li>
+  <li><strong>When the follower approaches the turn point:</strong> The rope becomes very tight — the leader has turned and is moving away at an angle while the follower has not yet turned.</li>
+</ul>
+<p><strong>Best practice:</strong></p>
+<ol>
+  <li>The leader pauses briefly after completing the turn to let slack recover naturally.</li>
+  <li>The follower calls "slack" when approaching the turn point; the leader gives slack actively.</li>
+  <li>Middle climbers act as a buffer — don't all bunch up at the turn at once.</li>
+  <li>Everyone turns at the same physical spot, not at their own preferred position.</li>
+  <li>After the turn, re-check that the rope is still on the downhill side. If the turn put the rope uphill, pause and step around until it is downhill again.</li>
+</ol>
+
+<h3>Ice Axe While Moving</h3>
+<p>Carry the axe in the uphill hand in cane position: pick rearward, palm on adze, shaft planted in the snow ahead with each step. Swap hands when direction reverses. Never carry the axe across the body on a traverse.</p>
+
+<h3>Crampon Discipline</h3>
+<p>Splay feet slightly apart and lift each foot deliberately — never shuffle. Never cross feet on steep terrain. Keep crampons away from the rope.</p>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="fall">3. Immediate Fall Response</h2>
+
+<div class="callout warn">
+  <strong>The window is one to two seconds.</strong>
+  The goal is to stop the slide before the rope comes taut with velocity. Every team member arrests simultaneously — no waiting to feel tension.
+</div>
+
+<p>When someone shouts <strong>"Falling!"</strong>:</p>
+<ol>
+  <li>Every climber drops and self-arrests immediately — no hesitation.</li>
+  <li>Axe across the chest: pick pressed into snow near the shoulder, spike lifted.</li>
+  <li>If wearing crampons, bend the knees and lift the feet while sliding so the points do not catch, flip you, or wrench an ankle or knee.</li>
+  <li>Once the slide is stopped and you are in control, kick boot toes or crampon points into the slope to build a platform.</li>
+  <li>Transfer as much load as possible into the legs. The axe and arms are the protection and backup, not the main long-term anchor.</li>
+  <li>Hold the arrest position until the whole rope team is stable; do not stand up early.</li>
+</ol>
+
+<p><strong>Why everyone arrests at once:</strong> If one climber hesitates, the rope loads at speed. A late arrest is far harder and may fail entirely.</p>
+
+<p><strong>Limitation:</strong> Self-arrest is unreliable above ~40° on hard ice. Prevention through crampon footwork is the primary tool on steep terrain.</p>
+
+<p><strong>Video references — recommended before any glacier trip:</strong></p>
+<div class="video-grid">
+  <div class="video-card">
+    <div class="video-frame" data-youtube-id="myKB9XUwUtc" data-youtube-title="Alpine &amp; Mountaineering: The Self-Arrest | Climbing Tech Tips"></div>
+    <p>Alpine &amp; Mountaineering: The Self-Arrest | Climbing Tech Tips</p>
+    <a class="video-link" href="https://www.youtube.com/watch?v=myKB9XUwUtc" target="_blank" rel="noopener">Open on YouTube</a>
+  </div>
+  <div class="video-card">
+    <div class="video-frame" data-youtube-id="XhBo4I9inpo" data-youtube-title="How to Practice Ice Axe Self Arrest | Into the Mountains"></div>
+    <p>How to Practice Ice Axe Self Arrest | Into the Mountains</p>
+    <a class="video-link" href="https://www.youtube.com/watch?v=XhBo4I9inpo" target="_blank" rel="noopener">Open on YouTube</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="running-belay">4. Running Belay</h2>
+
+<h3>What It Is</h3>
+<p>A running belay allows the team to move together while the rope runs through one or more snow pickets as protection. If someone falls, the picket (in theory) arrests the fall. It is faster than a stationary belay but provides less reliable protection.</p>
+
+<h3>When to Use It</h3>
+<p>A running belay is a leader judgment call. The leader decides whether the terrain, snow quality, fall consequence, and team speed justify it; followers mainly need to know how to pass each piece without stopping the rope. It may be appropriate for:</p>
+<ul>
+  <li>Moderate traverses with a cliff or crevasse edge on one side (fall = going over the edge)</li>
+  <li>Crossing a snow bridge where fall risk is elevated but terrain below is manageable</li>
+  <li>Short crux sections on otherwise easy terrain</li>
+  <li>Descent of short moderate slopes where a tumble needs stopping</li>
+</ul>
+
+<h3>How the Leader Places the Piece</h3>
+<ol>
+  <li>Drive the picket into snow at ~25° past vertical, angled away from the expected load direction.</li>
+  <li>Hammer it flush using the adze of the ice axe.</li>
+  <li>Clip a locking carabiner to the top hole, gate facing away from the direction of pull.</li>
+  <li>Clip the rope through the carabiner. Thread the live rope strand — do not push a bight through.</li>
+</ol>
+
+<h3>How Followers Clip Through Quickly</h3>
+<p>As each follower reaches the picket:</p>
+<ol>
+  <li>Call "picket" and slow enough to work cleanly without dumping slack into the rope.</li>
+  <li>Stay below or level with the piece until your tie-in knot is close enough to manage.</li>
+  <li>Clip the rope strand behind your tie-in through the anchor carabiner, or through a second carabiner on the picket if the leader set one.</li>
+  <li>Confirm the trailing strand is seated and the gate is closed.</li>
+  <li>Unclip the rope strand in front of your tie-in.</li>
+  <li>Move past the piece, call "clear," and rebuild normal rope tension.</li>
+</ol>
+
+<p><strong>Follower pass-through video:</strong></p>
+<div class="video-card">
+  <div class="video-frame" data-youtube-id="Vpz3ytkxtJo" data-youtube-title="Passing Protection when Running Belaying"></div>
+  <p>Passing Protection when Running Belaying</p>
+  <a class="video-link" href="https://www.youtube.com/watch?v=Vpz3ytkxtJo" target="_blank" rel="noopener">Open on YouTube</a>
+</div>
+
+<h3>How the Last Person Retrieves and Relays Pickets</h3>
+<p>The last person collects each picket as they pass. Getting pieces back to the leader efficiently:</p>
+
+<p><strong>Relay method (recommended on glacier):</strong></p>
+<ol>
+  <li>Last person retrieves the picket, carries it to the next rest or pause.</li>
+  <li>Last passes the picket to the middle climber.</li>
+  <li>Middle passes it to the leader at the next opportunity.</li>
+  <li>This avoids the last person running to the front and disrupting rope order.</li>
+</ol>
+
+<p><strong>Swap / leap-frog method:</strong></p>
+<ol>
+  <li>The team stops.</li>
+  <li>Last person walks to the front with the picket and becomes the new leader.</li>
+  <li>Old leader walks to the back. Roles swap; team moves again.</li>
+</ol>
+
+<div class="callout warn">
+  <strong>Do not remove active protection while anyone still depends on it.</strong>
+  It is normal for retrieved pickets to collect briefly with one person before a swap or hand-off. What matters is that the next leader has enough pieces before the next protected section, and that no picket comes out while the team is still exposed to the hazard it protects.
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="crossing">5. Snow Bridge and Crevasse Crossing</h2>
+
+<h3>Assessing a Bridge</h3>
+<ul>
+  <li><strong>Visual:</strong> Is the snow sagging, dark-tinted, or arching? Wide, flat, bright-white bridges are stronger. Any sign of subsidence is a warning.</li>
+  <li><strong>Probe:</strong> Use an <strong>avalanche probe pole</strong> (preferred — longer and more precise than an axe shaft). Push at 45° with firm pressure. If it drops through easily, find another crossing. An axe shaft is a backup if no probe is available.</li>
+  <li><strong>Sound:</strong> A hollow thump when probing or stepping indicates air space below.</li>
+  <li><strong>Time of day:</strong> Morning is safer. Bridges weaken as heat builds.</li>
+</ul>
+
+<h3>Mark Dangerous Spots</h3>
+<p>When the leader identifies a dangerous spot — a thin bridge, a hidden crevasse, a section of weak snow — <strong>mark it with an X in the snow</strong> using the axe pick or boot, or place the axe shaft across the danger area. Followers must step around the mark, not on it. This is especially important in whiteout, where followers cannot see what the leader has assessed.</p>
+
+<h3>Crossing Angle — Always Perpendicular</h3>
+
+<!-- DIAGRAM: Crossing angle (keep from original) -->
+<figure class="diagram">
+  <svg viewBox="0 0 680 260" width="100%" style="max-width:680px;" xmlns="http://www.w3.org/2000/svg">
+    <rect width="680" height="260" fill="#f0f4f8" rx="8"/>
+    <text x="340" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5276">Crevasse Crossing Angle</text>
+
+    <!-- ── WRONG: Parallel ── -->
+    <text x="155" y="50" text-anchor="middle" font-size="12" font-weight="bold" fill="#922b21">✗ WRONG — Parallel</text>
+    <rect x="50" y="80" width="210" height="30" fill="#1a5276" rx="3" opacity=".25"/>
+    <text x="155" y="100" text-anchor="middle" font-size="10" fill="#1a5276">Crevasse</text>
+    <line x1="60" y1="65" x2="300" y2="65" stroke="#555" stroke-width="2"/>
+    <circle cx="60"  cy="65" r="8" fill="#1a5276"/>
+    <text   x="60"  y="68" text-anchor="middle" font-size="9" fill="white">1</text>
+    <circle cx="190" cy="65" r="8" fill="#1a5276"/>
+    <text   x="190" y="68" text-anchor="middle" font-size="9" fill="white">2</text>
+    <circle cx="300" cy="65" r="8" fill="#1a5276"/>
+    <text   x="300" y="68" text-anchor="middle" font-size="9" fill="white">3</text>
+    <circle cx="190" cy="130" r="8" fill="#922b21"/>
+    <text x="155" y="160" text-anchor="middle" font-size="10" fill="#922b21">Rope runs parallel —</text>
+    <text x="155" y="175" text-anchor="middle" font-size="10" fill="#922b21">no arrest possible</text>
+
+    <line x1="340" y1="40" x2="340" y2="240" stroke="#cdd3da" stroke-width="1" stroke-dasharray="5,4"/>
+
+    <!-- ── CORRECT: Perpendicular ── -->
+    <text x="510" y="50" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a5276">✓ CORRECT — Perpendicular</text>
+    <rect x="390" y="130" width="240" height="28" fill="#1a5276" rx="3" opacity=".25"/>
+    <text x="510" y="148" text-anchor="middle" font-size="10" fill="#1a5276">Crevasse</text>
+    <line x1="510" y1="70" x2="510" y2="230" stroke="#555" stroke-width="2"/>
+    <circle cx="510" cy="70"  r="8" fill="#1a5276"/>
+    <text   x="510" y="73"  text-anchor="middle" font-size="9" fill="white">3</text>
+    <circle cx="510" cy="120" r="8" fill="#1a5276"/>
+    <text   x="510" y="123" text-anchor="middle" font-size="9" fill="white">2</text>
+    <circle cx="510" cy="175" r="8" fill="#922b21"/>
+    <text   x="510" y="178" text-anchor="middle" font-size="9" fill="white">!</text>
+    <circle cx="510" cy="230" r="8" fill="#1a5276"/>
+    <text   x="510" y="233" text-anchor="middle" font-size="9" fill="white">1</text>
+    <text x="510" y="248" text-anchor="middle" font-size="10" fill="#1a5276">Rope crosses perpendicular —</text>
+    <text x="510" y="260" text-anchor="middle" font-size="10" fill="#1a5276">team arrests the fall</text>
+  </svg>
+  <figcaption>Figure 2 — Always cross a crevasse perpendicular to it. A rope running parallel provides almost no arrest capability if the crossing person falls through.</figcaption>
+</figure>
+
+<h3>Crossing Protocol</h3>
+<ol>
+  <li>Orient the team perpendicular to the crevasse.</li>
+  <li>One person crosses at a time. Remaining climbers brace in arrest-ready position.</li>
+  <li>
+    <strong>Follower coordination — give slack:</strong> The climbers behind must watch the crossing person and actively give enough slack so the leader can move quickly and without stopping. A follower keeping the rope tight stops the leader at the most dangerous point on the bridge. The team's job during a crossing is to watch, stay ready to arrest, and allow cooperative movement.
+  </li>
+  <li>Move well clear of the landing zone before the next person starts.</li>
+</ol>
+
+<div class="callout warn">
+  <strong>Common mistake: follower pulls tight on the bridge</strong>
+  If you feel taut on a bridge crossing, give slack immediately. Your job is to be arrest-ready on the far side — not to act as a brake while the leader is still mid-bridge on the weakest part of the snow.
+</div>
+
+<h3>When the Leader Travels Along a Crevasse</h3>
+<p>Most crossings should be perpendicular. Sometimes the leader approaches a crevasse, rejects the crossing, and moves along the crevasse to find a safer bridge. Followers should not blindly follow the leader's tracks near the lip. Keep the rope taut, move the same general direction, and turn earlier so the follower stays offset and farther from the crevasse while the leader searches.</p>
+
+<figure class="diagram">
+  <svg viewBox="0 0 720 300" width="100%" style="max-width:720px;" xmlns="http://www.w3.org/2000/svg">
+    <rect width="720" height="300" fill="#f0f4f8" rx="8"/>
+    <text x="360" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5276">Leader Moves Along Crevasse — Followers Turn Early</text>
+
+    <rect x="60" y="85" width="600" height="52" rx="8" fill="#1a5276" opacity=".22"/>
+    <path d="M65,112 C130,88 190,134 250,108 S370,87 430,112 S560,136 655,103" fill="none" stroke="#1a5276" stroke-width="3" stroke-dasharray="8,5"/>
+    <text x="360" y="119" text-anchor="middle" font-size="12" fill="#1a5276">crevasse / weak bridge zone</text>
+
+    <path d="M250,240 C250,205 285,176 330,158 C388,134 450,123 530,122" fill="none" stroke="#555" stroke-width="3"/>
+    <path d="M185,245 C190,205 225,179 280,165 C335,151 410,148 500,150" fill="none" stroke="#1a5276" stroke-width="3" stroke-dasharray="7,5"/>
+    <path d="M120,247 C130,215 168,192 225,178 C286,164 365,164 462,172" fill="none" stroke="#1a5276" stroke-width="3" stroke-dasharray="7,5"/>
+
+    <line x1="530" y1="122" x2="500" y2="150" stroke="#555" stroke-width="2"/>
+    <line x1="500" y1="150" x2="462" y2="172" stroke="#555" stroke-width="2"/>
+
+    <circle cx="530" cy="122" r="12" fill="#922b21"/>
+    <text x="530" y="126" text-anchor="middle" font-size="10" fill="#fff">L</text>
+    <circle cx="500" cy="150" r="12" fill="#1a5276"/>
+    <text x="500" y="154" text-anchor="middle" font-size="10" fill="#fff">2</text>
+    <circle cx="462" cy="172" r="12" fill="#1a5276"/>
+    <text x="462" y="176" text-anchor="middle" font-size="10" fill="#fff">3</text>
+
+    <text x="560" y="76" font-size="11" fill="#922b21">Leader near lip</text>
+    <line x1="548" y1="82" x2="532" y2="108" stroke="#922b21" stroke-width="1.5" marker-end="url(#arrAlongWarn)"/>
+    <text x="145" y="206" font-size="11" fill="#1a5276">Followers turn earlier</text>
+    <text x="145" y="221" font-size="11" fill="#1a5276">and stay offset</text>
+    <line x1="268" y1="170" x2="228" y2="183" stroke="#1a5276" stroke-width="1.5" marker-end="url(#arrAlong)"/>
+    <text x="500" y="204" text-anchor="middle" font-size="11" fill="#555">Rope stays taut and angled; team does not stack along the edge.</text>
+
+    <defs>
+      <marker id="arrAlong" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#1a5276"/>
+      </marker>
+      <marker id="arrAlongWarn" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#922b21"/>
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>When the leader travels along a crevasse looking for a bridge, followers move the same direction but turn earlier and stay farther from the lip. Do not march the whole rope team into the leader's exact near-edge track.</figcaption>
+</figure>
+
+<h3>Jumping a Crevasse</h3>
+<ul>
+  <li>Only when the gap is narrow enough to jump in full control.</li>
+  <li>Cross perpendicular; never jump at an angle.</li>
+  <li>Give slightly more slack so the rope does not arrest mid-air.</li>
+  <li>Land crampons flat, knees slightly bent — do not lunge forward.</li>
+  <li>Team braces immediately after landing.</li>
+  <li>If there is any doubt about landing in control, find a bridge or a different line.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="route">6. Route Finding Through Crevasse Fields</h2>
+
+<h3>Reading the Glacier</h3>
+<p>Before entering a crevasse zone, stop on safe ground and study the terrain:</p>
+<ul>
+  <li><strong>Benches:</strong> Flat ledges across the glacier are usually the most stable travel surface.</li>
+  <li><strong>Crevasse bands:</strong> Run roughly perpendicular to glacier flow. Look for the narrowest, most consolidated crossing point.</li>
+  <li><strong>Color:</strong> Darker, blue-tinted snow often indicates subsidence toward a hidden crevasse.</li>
+  <li><strong>Sagging:</strong> Any depression or arch in the snow surface that does not match surrounding terrain may be a bridge.</li>
+</ul>
+
+<h3>Choosing a Line</h3>
+<ul>
+  <li>Travel on benches and rims; avoid convex rolls where the glacier is under tension.</li>
+  <li>Cross crevasse bands at their narrowest and most consolidated point, perpendicular.</li>
+  <li>Avoid running parallel to crevasse lines for extended distances.</li>
+  <li>When uncertain which side is safer, default to the more uphill side.</li>
+</ul>
+
+<h3>Probing</h3>
+<p>Use an <strong>avalanche probe pole as the primary probing tool</strong> — it is longer, lighter, and gives more accurate feedback than an axe shaft. Push at 45° with firm pressure. A probe dropping through easily means hidden air — reroute immediately. Probe one step ahead before each step in uncertain terrain.</p>
+
+<h3>GPS and Whiteout Navigation</h3>
+<ul>
+  <li>Mark key waypoints on ascent: rope-up point, crevasse crossings, camp, summit.</li>
+  <li>In whiteout: tighten spacing, navigate on pre-planned compass bearings with altimeter checks, probe more frequently.</li>
+  <li>If position cannot be confirmed, stop and wait rather than committing to an uncertain bearing in a crevasse field.</li>
+</ul>
+
+<h3>When to Backtrack</h3>
+<p>If the line ahead closes off — bridge collapsed, band widened, visibility dropped — backtrack to the last confirmed-safe point rather than committing to uncertain terrain.</p>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="hazards">7. Objective Hazard Avoidance</h2>
+
+<p>These hazards cannot be controlled — only avoided or minimized. Move efficiently through hazard zones.</p>
+
+<h3>Cornice</h3>
+<p>Cornices are overhanging snow masses built on the lee side of ridges. They are <strong>far larger and more dangerous than they appear</strong> from below or from behind on the ridge.</p>
+
+<div class="callout warn">
+  <strong>Critical danger: the fracture zone extends far beyond the visible edge.</strong>
+  A cornice with a 10 m (30 ft) roof overhang can fracture 30 m (100 ft) or more back onto what appears to be safe flat ridge. The surface you are standing on may already be part of the cornice — you cannot tell from above where safe ground ends.
+</div>
+
+<figure class="photo">
+  <img src="rope-team-travel-cornice.png"
+       alt="Annotated cornice showing unsupported snow and a fracture line far behind the visible overhanging lip"
+       loading="lazy">
+  <figcaption>Cornice fracture reference: the visible lip is not the safe boundary. The break can start far back on the ridge surface and release unsupported snow beyond the ridge line.</figcaption>
+</figure>
+
+<p><strong>Safe distance:</strong> Stay back at least <strong>twice the visible overhang depth</strong> from the apparent edge. If the overhang below appears 5 m deep, stay at least 10 m from the edge. In doubt, stay further still.</p>
+
+<p><strong>Warning signs from above:</strong></p>
+<ul>
+  <li>Cracks parallel to the ridge line</li>
+  <li>Soft or hollow-sounding snow near the edge</li>
+  <li>Slight changes in snow texture toward the edge</li>
+  <li>A fracture line may angle back from the visible lip, so an existing track that looks "back from the edge" can still be on unsupported cornice.</li>
+  <li>In side view, imagine a diagonal fracture plane that starts at a weak point far back on the ridge surface and runs down toward the cornice body. The surface break can be behind the vertical projection of the cliff edge, not merely behind the visible lip.</li>
+</ul>
+
+<p>Never rope along the very edge of a corniced ridge. Position the team entirely on the windward side.</p>
+
+<h3>Serac and Icefall</h3>
+<ul>
+  <li>Serac falls have no reliable correlation to time of day, temperature, or weather. Avoidance and limiting exposure time are the only effective strategies.</li>
+  <li>Do not stop or rest beneath seracs.</li>
+  <li>Move through serac exposure zones as a coordinated team; no one waits while others stop under the hazard.</li>
+  <li>Plan the route before travel to minimize time in serac runout zones.</li>
+</ul>
+
+<h3>Rockfall</h3>
+<ul>
+  <li>Wear a helmet at all times on the glacier.</li>
+  <li>Identify debris zones: light streaks on cliff face, dark debris on snow below walls.</li>
+  <li>Designate a spotter who watches the cliff above while the team moves; the spotter calls the alert the instant anything moves.</li>
+  <li>Call <strong>"ROCK!"</strong> or <strong>"ICE!"</strong> loudly and repeatedly; everyone covers the neck and head and presses against the slope — do not look up.</li>
+  <li>Move through rockfall zones quickly as a coordinated team; no stopping under cliff bands.</li>
+</ul>
+
+<h3>Short Rope — When to Use It</h3>
+<p>Short roping (Kiwi coil technique: coils taken around the neck and tied off, shortening the active rope to 2–5 m) is a trained guiding technique for terrain where full rope length creates more hazard than protection. Use it only when there is no crevasse exposure and the leader has practiced direct rope control.</p>
+<p>Appropriate cases may include loose rock / scree where rope drag could trigger rockfall, short mixed approach sections where repeatedly unroping is inefficient, or moderate snow where a trained leader is directly supporting a less experienced climber.</p>
+
+<div class="callout warn">
+  <strong>Short rope is not a cornice or crevasse solution.</strong>
+  For cornices, avoidance and staying well back from the fracture zone are primary. In hidden-crevasse terrain, adequate glacier spacing is non-negotiable.
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="ascent">8. Ascending Steep Snow and Breaking Trail</h2>
+
+<h3>Crampon Technique</h3>
+<p>Crampon technique shifts as slope angle increases. The key principle at every angle: <strong>keep crampon points securely in the snow before transferring weight.</strong> Never skate a crampon across the surface hoping it will catch.</p>
+
+<p><strong>French technique (flat-foot / pied plat) — moderate slopes, up to ~45°:</strong> Flex the ankle so all 10 bottom crampon points contact the snow at the same time. This is the required efficient technique on not-quite-steep terrain; do not switch to front-pointing just because the surface feels firm. On a traverse, roll the ankle downhill to keep the boot sole flat enough that every bottom point can bite.</p>
+
+<p><strong>American / hybrid technique — steeper slopes, ~45–60°:</strong> One foot stays flat while the other front-points. The flat foot provides a rest and the front-pointing foot provides security. Alternate sides before one calf burns out.</p>
+
+<p><strong>German / front-pointing — very steep slopes, 60°+:</strong> Both feet front-point. This is powerful but tiring and requires confident axe placement for balance, so reserve it for terrain where flat-foot or hybrid technique no longer works.</p>
+
+<h3>Kick Steps</h3>
+<p>When snow is soft enough to accept a platform, kick the toe of the boot into the slope before weighting it. On harder snow, use the boot edge. Angle each step slightly inward (into the slope) for security.</p>
+
+<p><strong>Make steps the right size:</strong> Cut each step large enough for the <strong>smallest boot on the team</strong>. If your step is too small, the next person has to re-kick it or risk a slip. On a long ascent, undersized steps compound fatigue for every follower. Keep steps close enough together that short legs can reach them — smaller steps, closer together, is safer and faster for the whole team.</p>
+
+<p><strong>Three-point balance on very steep snow:</strong> Before moving any limb, confirm that three points of contact (two crampons + axe, or one crampon + two axe grips) are secure. Move one point at a time. Do not lunge or reach — each move should be deliberate. This is the same principle as exposed rock scrambling applied to steep snow.</p>
+
+<h3>Ice Axe Positions on Ascent</h3>
+<table>
+  <thead><tr><th>Position</th><th>When</th><th>How</th></tr></thead>
+  <tbody>
+    <tr><td>Cane (piolet canne)</td><td>Moderate slopes</td><td>Uphill hand, pick rearward, palm on adze, shaft planted ahead</td></tr>
+    <tr><td>Self-belay / stake</td><td>Steep; need both hands</td><td>Drive shaft vertically, grip head with both hands</td></tr>
+    <tr><td>Low dagger</td><td>Steep; firm snow</td><td>Grip shaft below head, press pick into snow at waist</td></tr>
+    <tr><td>High dagger</td><td>Very steep; firm snow</td><td>Grip over the pick with thumb on adze, press in at shoulder height</td></tr>
+  </tbody>
+</table>
+
+<h3>Rest Step and Pressure Breathing</h3>
+<p>Lock the trailing knee completely straight after each uphill step. Hold for one breath. Exhale forcefully through pursed lips (pressure breathing). Advance. Do not skip the rest step to go faster — a team using it consistently will outperform one that pushes hard and stops to recover.</p>
+
+<h3>Switchbacks</h3>
+<p>Angle across slope at 30–45° from horizontal. At the turn, face the slope and step uphill — never turn facing outward. Coordinate turns: the leader calls the turn; everyone turns at the same physical spot. See Section 2 for rope behavior during switchbacks.</p>
+
+<h3>Breaking Trail</h3>
+<ul>
+  <li><strong>Rotate before exhaustion.</strong> The leader calls "trading" when they want to swap — not after they are blown. Carry 70–80% effort at the front; reserve capacity for navigation and judgment.</li>
+  <li>Size steps for the shortest team member.</li>
+  <li>On soft snow: compress each step firmly before transferring weight. Unconsolidated steps collapse under the next person.</li>
+  <li>Use existing tracks whenever possible — even a slightly indirect boot track is faster than breaking new snow.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="descent">9. Descending Steep Snow</h2>
+
+<h3>Reading Snow Conditions</h3>
+<p>Test by stomping the heel into the slope:</p>
+<ul>
+  <li><strong>Soft snow:</strong> Heel sinks cleanly and holds → plunge step.</li>
+  <li><strong>Hard snow:</strong> Heel skates or barely dents → face in, front-point down.</li>
+  <li>When uncertain, start cautious (face in) and reassess as you descend.</li>
+</ul>
+
+<h3>Soft Snow — Plunge Step (up to ~40°)</h3>
+<p>Stand upright, slight knee bend. Step straight downhill, striking with the heel. Let the heel sink before shifting full weight. Axe in cane position. Do not lean back — weight over the feet. Keep crampons splayed to prevent points catching gaiters.</p>
+
+<figure class="photo">
+  <img src="rope-team-travel-plunging-step.png"
+       alt="Annotated plunge step descent showing heel-first steps and ice axe in self-belay position"
+       loading="lazy">
+  <figcaption>Plunge step reference: step downhill heel-first, keep knees slightly bent, and use the axe in self-belay position.</figcaption>
+</figure>
+
+<h3>Side-Step / Side-Facing Descent</h3>
+<p>On steeper soft snow where a straight plunge step feels insecure but facing in is not yet necessary, turn the body side-on to the slope. Keep the uphill hand and axe engaged in the snow, lower the downhill foot first, then bring the uphill foot down to the stance. Move deliberately, one step at a time, and switch sides before one leg gets tired.</p>
+
+<figure class="photo">
+  <img src="rope-team-travel-sidestep.png"
+       alt="Side-facing descent on steep snow with one foot lowered at a time"
+       loading="lazy">
+  <figcaption>Side-step reference: face partly into the slope, keep the axe engaged, and lower one foot at a time.</figcaption>
+</figure>
+
+<h3>Hard Snow — Face In</h3>
+<p>Face the slope; front-point or flat-foot based on angle. Descend slowly, test each step before weighting it. Axe in dagger or stake position.</p>
+<p><strong>Shuffle step:</strong> On marginal snow, step sideways (perpendicular to fall line). Slow, secure, suitable for short exposed sections.</p>
+
+<h3>Descending as a Rope Team</h3>
+<ul>
+  <li>Tighten spacing on descent — a fall builds speed faster downhill.</li>
+  <li>Every climber stays arrest-ready: axe across body, pick near the slope.</li>
+  <li>Call any stumble or uncertainty immediately.</li>
+  <li>Unrope only when completely clear of crevasse hazard.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="nutrition">10. Nutrition and Hydration</h2>
+
+<h3>Eating on the Move</h3>
+<p>Appetite suppresses at altitude (notably above 3,000–4,000 m). Eat on a schedule, not by hunger.</p>
+<ul>
+  <li>Target 200–300 calories every 2 hours of moving.</li>
+  <li>Accessible outer pocket: gels, chews, nut butter packets, nuts, bars that won't freeze solid.</li>
+  <li>At altitude, liquids often work when solid food does not: warm broth or sports drinks carry calories and fluid together.</li>
+</ul>
+
+<h3>Hydration</h3>
+<p>Cold air, altitude, and exertion all increase fluid loss while reducing thirst sensation. Drink on a schedule — at each checkpoint or rest, not only when thirsty. Target 3–4 L per day on a climb. Add electrolytes on long days.</p>
+
+<h3>Freeze-Proofing</h3>
+<div class="callout warn">
+  <strong>Do not rely on a hydration bladder and straw in cold weather.</strong>
+  Blowing water back into the hose helps, but it is not reliable; the tube and bite valve are common failure points.
+</div>
+<ul>
+  <li>Use wide-mouth bottles instead of a bladder for cold starts and exposed travel.</li>
+  <li>Carry bottles upside down so ice forms away from the cap.</li>
+  <li>Keep bottles in insulated sleeves, inside the pack, or inside a jacket during severe cold and wind.</li>
+  <li>Start with warm water when appropriate and carry a thermos of warm liquid for pre-dawn starts, long breaks, or summit pushes.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════ -->
+<h2 id="monitoring">11. Team Monitoring and Warning Signs</h2>
+
+<p>The rope team is a mutual monitoring system. Each person watches teammates and checks themselves.</p>
+
+<table>
+  <thead><tr><th>Condition</th><th>Signs to watch for</th><th>Immediate response</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Fatigue</strong></td>
+      <td>Pace drops, rope goes slack, short responses, stumbling</td>
+      <td>Rest, eat, drink; reassess plan</td>
+    </tr>
+    <tr>
+      <td><strong>AMS</strong></td>
+      <td>Headache (worse in morning), nausea, dizziness, unusual breathlessness, poor coordination</td>
+      <td>Do not ascend; descend if worsening</td>
+    </tr>
+    <tr>
+      <td><strong>Hypothermia</strong></td>
+      <td>Shivering, fumbling with gear, confusion, frequent stops</td>
+      <td>Stop, insulate, warm calories and fluid</td>
+    </tr>
+    <tr>
+      <td><strong>Frostbite</strong></td>
+      <td>Waxy/pale/hard skin on face, fingers, toes; numbness</td>
+      <td>Rewarm immediately; do not rub</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Peer-check faces every 30–45 minutes on cold exposed days. Frostbite is painless once numb — the affected person will not notice it in themselves.</p>
+
+<div class="callout">
+  <strong>Team communication culture</strong>
+  Any team member can call a stop at any time for any reason. Establish this before travel begins. At each reassessment point, the leader actively asks each person for status — do not wait for someone to volunteer.
+</div>
+
+<hr>
+
+<h2>Related Knowledge</h2>
+<ul>
+  <li><code>Knowledge/glacier-travel/crevasse-rescue/</code> — crevasse rescue systems (hauling, self-rescue)</li>
+  <li><code>Knowledge/glacier-travel/snow-travel/</code> — ice axe and crampon fundamentals</li>
+  <li><code>Knowledge/navigation/</code> — GPS, compass, whiteout navigation</li>
+  <li><code>Knowledge/avalanche/</code> — avalanche terrain assessment</li>
+  <li><code>Knowledge/trip-planning/</code> — go/no-go frameworks, team dynamics</li>
+</ul>
+
+<hr>
+
+<h2>Sources</h2>
+<ul class="sources">
+  <li><a href="https://www.alpinesavvy.com/blog/rigging-your-rope-for-glacier-travel">Alpinesavvy: Rigging Your Rope for Glacier Travel</a></li>
+  <li><a href="https://www.alpinesavvy.com/blog/the-brake-knot-for-2-person-glacier-travel">Alpinesavvy: The Brake Knot for 2-Person Glacier Travel</a></li>
+  <li><a href="https://www.alpinesavvy.com/blog/3-tips-for-better-running-snow-belays">Alpinesavvy: 3 Tips for Better Running Snow Belays</a></li>
+  <li><a href="https://www.alpinesavvy.com/blog/taking-in-coils-shorten-the-rope-on-varied-terrain">Alpinesavvy: Taking In Coils — Shorten the Rope on Varied Terrain</a></li>
+  <li><a href="https://www.petzl.com/US/en/Sport/Approaching-a-glacier-as-a-roped-team-of-two">Petzl: Approaching a Glacier as a Roped Team of Two</a></li>
+  <li><a href="https://www.rei.com/learn/expert-advice/glacier-and-roped-travel-for-mountaineering.html">REI: Glacier and Roped Travel for Mountaineering</a></li>
+  <li><a href="https://americanalpineclub.org/news/2023/6/28/snow-climbing">American Alpine Club: The Principles of Snow Climbing</a></li>
+  <li><a href="https://www.mountaineers.org/locations-lodges/seattle-branch/committees/seattle-climbing-committee/course-templates/alpine-climbing-courses/intense-basic-alpine-climbing-course/course-materials/steep-snow-tutorial">The Mountaineers: Steep Snow Tutorial</a></li>
+  <li><a href="https://uphillathlete.com/nutrition/expedition-nutrition-tips/">Uphill Athlete: Expedition Nutrition Tips</a></li>
+  <li><a href="https://www.mountaineers.org/blog/rock-rock-rock-rock-rock">The Mountaineers: How to Avoid Rockfall</a></li>
+  <li><a href="https://avalanche.org/avalanche-encyclopedia/avalanche/avalanche-problems/avalanche-problem-type/cornice-fall/">Avalanche.org: Cornice Fall</a></li>
+  <li><a href="https://www.ortovox.com/uk/safety-academy-lab-ice/chapter-2">Ortovox Safety Academy Lab Ice: Chapter 2 — Rope Teams and Glacier Travel</a></li>
+  <li><a href="https://www.ortovox.com/uk/safety-academy-lab-ice/chapter-2/walking-techniques-on-firn-and-ice">Ortovox Safety Academy Lab Ice: Walking Techniques on Firn and Ice</a></li>
+  <li><a href="https://sites.google.com/mazamas.org/bcepbasecamp/learning-modules/snow-climbing">Mazamas BCEP Basecamp: Snow Climbing</a></li>
+  <li><a href="https://www.alpineinstitute.com/self-arrest-with-crampons/">American Alpine Institute: Self-Arrest with Crampons</a></li>
+  <li><a href="https://www.rei.com/learn/expert-advice/how-to-use-crampons.html">REI: How to Use Crampons</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Vpz3ytkxtJo">Passing Protection when Running Belaying</a></li>
+  <li>WCR 2026 Deck 2 — Terrain, Anchors, Belays (Baker crevasse sizing and rope spacing formula)</li>
+  <li>Andy Tyson &amp; Mike Clelland, <em>The Illustrated Guide to Glacier Travel and Crevasse Rescue</em> (rope rigging illustration via Alpinesavvy)</li>
+</ul>
+
+<script>
+  (function () {
+    var canEmbed = window.location.protocol === "http:" || window.location.protocol === "https:";
+    var frames = document.querySelectorAll(".video-frame[data-youtube-id]");
+
+    frames.forEach(function (frame) {
+      var id = frame.getAttribute("data-youtube-id");
+      var title = frame.getAttribute("data-youtube-title") || "YouTube video";
+
+      if (!canEmbed) {
+        var fallback = document.createElement("a");
+        var image = document.createElement("img");
+        var label = document.createElement("span");
+
+        fallback.className = "video-local-fallback";
+        fallback.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(id);
+        fallback.target = "_blank";
+        fallback.rel = "noopener";
+        image.src = "https://img.youtube.com/vi/" + encodeURIComponent(id) + "/hqdefault.jpg";
+        image.alt = title;
+        label.textContent = "Open on YouTube";
+
+        fallback.appendChild(image);
+        fallback.appendChild(label);
+        frame.appendChild(fallback);
+        return;
+      }
+
+      var iframe = document.createElement("iframe");
+      var src = new URL("https://www.youtube.com/embed/" + id);
+      src.searchParams.set("origin", window.location.origin);
+
+      iframe.src = src.toString();
+      iframe.title = title;
+      iframe.loading = "lazy";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allowFullscreen = true;
+      frame.appendChild(iframe);
+    });
+  })();
+</script>
+</body>
+</html>
