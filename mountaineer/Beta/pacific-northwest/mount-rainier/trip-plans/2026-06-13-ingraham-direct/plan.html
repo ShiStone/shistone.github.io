@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mount Rainier — Ingraham Direct | Trip Plan Jun 13 2026</title>
+<style>
+  :root {
+    --blue:   #1a4f7a;
+    --red:    #c0392b;
+    --amber:  #d68910;
+    --green:  #1e8449;
+    --grey:   #4a4a4a;
+    --light:  #f4f6f8;
+    --border: #c8d0da;
+    --font:   'Segoe UI', system-ui, sans-serif;
+    --mono:   'Cascadia Code', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); font-size: 14px; color: #222; background: #fff; line-height: 1.55; }
+
+  /* ── Page header ───────────────────────────────────────────── */
+  .page-header {
+    background: var(--blue);
+    color: #fff;
+    padding: 28px 40px 20px;
+  }
+  .page-header h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.3px; }
+  .page-header .sub { font-size: 13px; opacity: 0.82; margin-top: 6px; }
+  .badge-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge.warn { background: rgba(208,83,16,0.7); border-color: rgba(255,255,255,0.2); }
+
+  /* ── Layout ─────────────────────────────────────────────────── */
+  .container { max-width: 1060px; margin: 0 auto; padding: 28px 30px 60px; }
+
+  /* ── Section headings ────────────────────────────────────────── */
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 5px;
+    margin: 30px 0 12px;
+  }
+  h3 { font-size: 13px; font-weight: 700; color: var(--grey); margin: 18px 0 8px; }
+
+  /* ── Tables ─────────────────────────────────────────────────── */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 6px; }
+  th {
+    background: var(--blue);
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 10px;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+  }
+  td { padding: 6px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light); }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  td a { color: var(--blue); text-decoration: none; }
+  td a:hover { text-decoration: underline; }
+
+  /* ── Timing table specifics ─────────────────────────────────── */
+  .timing-table th, .timing-table td { font-size: 12px; padding: 5px 8px; }
+  .timing-table td:nth-child(4),
+  .timing-table td:nth-child(5),
+  .timing-table td:nth-child(6),
+  .timing-table td:nth-child(7) { text-align: right; white-space: nowrap; }
+  .timing-table td:last-child { font-weight: 700; color: var(--blue); white-space: nowrap; }
+  .gate-row td { background: #fff3cd !important; font-weight: 600; }
+  .summit-row td { background: #d4edda !important; font-weight: 700; }
+
+  /* ── Risk table ─────────────────────────────────────────────── */
+  .risk-high { color: var(--red); font-weight: 700; }
+  .risk-med  { color: var(--amber); font-weight: 700; }
+  .risk-low  { color: var(--green); }
+
+  /* ── Go/No-Go score box ────────────────────────────────────── */
+  .gonogo-box {
+    border: 2px solid var(--green);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    background: #f0faf4;
+  }
+  .gonogo-box .decision {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  .gonogo-box .sub { font-size: 12px; color: #555; }
+
+  /* ── Alert boxes ─────────────────────────────────────────────── */
+  .alert {
+    border-left: 4px solid var(--red);
+    background: #fdf0ef;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 13px;
+    border-radius: 0 4px 4px 0;
+  }
+  .alert.warn {
+    border-color: var(--amber);
+    background: #fef9ec;
+  }
+  .alert.info {
+    border-color: var(--blue);
+    background: #eef4fb;
+  }
+  .alert strong { display: block; margin-bottom: 3px; }
+
+  /* ── Bullet lists ────────────────────────────────────────────── */
+  ul { padding-left: 20px; margin: 6px 0; }
+  li { margin-bottom: 4px; font-size: 13px; }
+
+  /* ── Emergency banner ─────────────────────────────────────────── */
+  .emergency-banner {
+    background: var(--red);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+  .emergency-banner strong { font-size: 15px; display: block; margin-bottom: 4px; }
+
+  /* ── Checkpoint gate table ───────────────────────────────────── */
+  .gate-table td { font-size: 13px; }
+  .gate-table tr:nth-child(even) td { background: var(--light); }
+  .gate-table td:nth-child(2) { font-weight: 700; color: var(--red); }
+
+  /* ── Print ───────────────────────────────────────────────────── */
+  @media print {
+    .page-header { background: #1a4f7a !important; -webkit-print-color-adjust: exact; }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div style="font-size:12px; opacity:0.7; margin-bottom:6px; font-family:var(--mono);">MOUNTAINEERING TRIP PLAN</div>
+  <h1>Mount Rainier — Ingraham Direct</h1>
+  <div class="sub">One-Day Car-to-Car Push · June 15, 2026 (Monday) · Depart Paradise 11:00 PM June 14</div>
+  <div class="badge-row">
+    <span class="badge">4 Climbers</span>
+    <span class="badge">16 mi RT</span>
+    <span class="badge">9,000 ft gain</span>
+    <span class="badge">14,411 ft summit</span>
+    <span class="badge">Glacier route</span>
+    <span class="badge warn">⚠ Re-verify conditions Jun 12</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ── EMERGENCY INFO ─────────────────────────────────────────── -->
+<h2>Emergency Information</h2>
+
+<div class="emergency-banner">
+  <strong>IN AN EMERGENCY: Call 911 · Activate inReach SOS if no cell</strong>
+  Pierce County Sheriff dispatches SAR · NPS Climbing Rangers (360) 569-6641 · Overdue callout: 6:00 PM June 15
+</div>
+
+<table>
+  <tr><td>Objective</td><td>Mount Rainier via Ingraham Direct — Columbia Crest (14,411 ft) primary; Camp Muir acceptable turnaround</td></tr>
+  <tr><td>Trailhead</td><td>Paradise Trailhead — 46.7867° N, 121.7354° W — 5,400 ft</td></tr>
+  <tr><td>Route / GPX</td><td>
+    <a href="https://caltopo.com/m/M1LF3">CalTopo — Ingraham Direct (M1LF3)</a> ·
+    <a href="https://caltopo.com/m/0TK5">All Rainier Routes CalTopo (0TK5)</a>
+  </td></tr>
+  <tr><td>County / Jurisdiction</td><td>Pierce County, Washington · Mount Rainier National Park</td></tr>
+  <tr><td>Last return / overdue</td><td>Planned return: <strong>~3:40 PM June 15</strong> · Overdue callout if no contact by <strong>6:00 PM June 15</strong></td></tr>
+  <tr><td>SAR / Emergency</td><td><strong>911</strong> → Pierce County Sheriff/SAR · NPS Climbing Rangers: <strong>(360) 569-6641</strong> · inReach SOS if no cell</td></tr>
+  <tr><td>Nearest hospital</td><td>MultiCare Good Samaritan Hospital — 401 15th Ave SE, Puyallup, WA 98372 · (253) 697-4000 · ~90 min from Paradise</td></tr>
+  <tr><td>Communication</td><td>Cell unreliable above ~9,000 ft. <strong>Garmin inReach required (1 unit min).</strong> Check-ins: trailhead, Camp Muir (~3 AM), summit/turnaround, trailhead return.</td></tr>
+</table>
+
+<!-- ── GENERAL INFO ────────────────────────────────────────────── -->
+<h2>General Information</h2>
+<table>
+  <tr><td>Distance / gain</td><td>~16 miles round-trip · ~9,000 ft gain · ~9,000 ft loss</td></tr>
+  <tr><td>Trip style</td><td>One-day push (car-to-car) — no overnight camp</td></tr>
+  <tr><td>Permit / registration</td><td>
+    <strong>Climbing permit: $82/person</strong> — pay at
+    <a href="https://www.pay.gov/public/form/start/460895389">Pay.gov</a>, register in-person at Paradise Wilderness Information Center (7:30 AM–5:00 PM, open daily).<br>
+    Register by June 14, 5 PM.<br>
+    NPS entrance: $35/vehicle or <a href="https://store.usgs.gov/america-the-beautiful-passes">America the Beautiful Pass</a>.
+  </td></tr>
+</table>
+
+<!-- ── TEAM CONTACTS ───────────────────────────────────────────── -->
+<h2>Team Contacts</h2>
+<p style="font-size:12px; color:#666; margin-bottom:8px;"><em>Fill personal details before departure. Leave blank cells for each climber to complete.</em></p>
+<table>
+  <tr>
+    <th>Climber</th><th>Phone</th><th>Emergency contact</th><th>EC phone</th><th>Medical notes</th><th>inReach / radio</th>
+  </tr>
+  <tr><td>(Leader)</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<!-- ── LOGISTICS ──────────────────────────────────────────────── -->
+<h2>Logistics</h2>
+<table>
+  <tr><td>Meet time / location</td><td>June 14, 8:00–8:30 PM — Paradise parking lot (permits handled before arriving)</td></tr>
+  <tr><td>Trailhead departure</td><td><strong>June 14, 9:00 PM</strong> (recommended; no later than 9:30 PM)</td></tr>
+  <tr><td>Expected return</td><td>June 15, ~2:40 PM</td></tr>
+  <tr><td>Last acceptable return</td><td><strong>June 15, 6:00 PM</strong> — triggers overdue callout · Camp Muir descent target: 12:00–12:30 PM · Camp Muir deadline: 2:00 PM</td></tr>
+  <tr><td>Driver / vehicle</td><td>TBD — Leader to fill</td></tr>
+  <tr><td>Required passes</td><td>NPS entrance: $35/vehicle or America the Beautiful Pass · Climbing permit: $82/person via Pay.gov (pre-purchase)</td></tr>
+  <tr><td>Road access</td><td>SR-706 (Nisqually entrance) open year-round to Paradise. Verify at <a href="https://www.nps.gov/mora/planyourvisit/weather.htm">NPS road status</a> by June 14.</td></tr>
+  <tr><td>Camp / lodging</td><td>Day push — no camp. <strong>Camp Muir public shelter CLOSED</strong> (construction, confirmed May 2026) — no indoor shelter; plan for full exposure.</td></tr>
+  <tr><td>Water</td><td>Carry 2 L from Paradise. Refill at Pebble Creek (~5,700 ft) or melt snow at Camp Muir (group stove). No reliable water above Panorama Point (~6,800 ft).</td></tr>
+  <tr><td>Human waste</td><td>WAG bags required above Camp Muir and on glacier. Privy at Camp Muir. Pack out all solid waste above Muir.</td></tr>
+</table>
+
+<!-- ── FOOD / WATER ────────────────────────────────────────────── -->
+<h2>Food / Water / Waste Plan</h2>
+<h3>Water</h3>
+<table>
+  <tr><td>Starting water</td><td>2 L per person from Paradise</td></tr>
+  <tr><td>Refill points</td><td>Pebble Creek (~5,700 ft) — filter required; or melt snow at Camp Muir during rope-up stop</td></tr>
+  <tr><td>Daily budget</td><td>4–5 L per person for ~15-hour push</td></tr>
+  <tr><td>Electrolytes</td><td>Salt tabs or mix every 2 hours above 10,000 ft; drink before thirsty</td></tr>
+  <tr><td>Stove for melt</td><td>One group stove + 110 g canister min; melt at Camp Muir</td></tr>
+</table>
+<h3>Calories / Food</h3>
+<table>
+  <tr><td>Pre-trip meal</td><td>Dinner June 14 ~4:00–5:00 PM — 700–900 cal, high carb, easy to digest (eat early; departing 9:00 PM)</td></tr>
+  <tr><td>Moving food</td><td>300–400 cal/hr; eat on schedule every 45–60 min — ~3,500–4,500 cal/person</td></tr>
+  <tr><td>Food types</td><td>Energy gels, bars, trail mix, salty crackers, PB tortillas, gummies — freeze-hardy only</td></tr>
+  <tr><td>Emergency buffer</td><td>800 cal/person in a separate bag</td></tr>
+  <tr><td>Total per person</td><td>~4,300–5,300 cal</td></tr>
+</table>
+
+<!-- ── PLANNING RESOURCES ─────────────────────────────────────── -->
+<h2>Planning Resources</h2>
+<table>
+  <tr><th>Category</th><th>Source</th><th>Current note (as of June 9, 2026)</th></tr>
+  <tr><td>Official route</td><td><a href="https://www.nps.gov/mora/planyourvisit/climbing.htm">NPS Climbing Page</a> · <a href="https://www.nps.gov/mora/planyourvisit/upload/Disappointment-Cleaver-Routebrief-2017_FINAL.pdf">Route Brief PDF</a></td><td>Background — verify with blog</td></tr>
+  <tr><td>NPS Climbing Blog</td><td><a href="https://mountrainierclimbing.blogspot.com/">mountrainierclimbing.blogspot.com</a></td><td><strong>June 9 update:</strong> 1–2 ft new snow above high camps; wind slab triggered at 12,400 ft; boot pack obscured — not viable today</td></tr>
+  <tr><td>Recent trip report</td><td><a href="https://www.alpineascents.com/blog/cascades-conditions-report-6-3-2026/">Alpine Ascents 6/3/2026</a></td><td>3 ladder crossings (11,600–13,200 ft); 100% summit success; guides may transition to DC soon</td></tr>
+  <tr><td>Weather — NOAA point</td><td><a href="https://forecast.weather.gov/MapClick.php?lat=46.8529&lon=-121.7604">NOAA Summit Forecast</a></td><td>Re-verify June 14 evening</td></tr>
+  <tr><td>Weather — Windy sounding</td><td><a href="https://www.windy.com/46.853/-121.760?46.853,-121.760,11">Windy — Rainier Summit</a></td><td><strong>Use sounding panel; read temp and wind at ~4,400 m geopotential height.</strong> Jun 15 AM: 32–35°F, 16–19 mph N/NNW (GFS/ECMWF). Monitor cloud cover (wx.morageology shows 66% AM clouds — verify)</td></tr>
+  <tr><td>Weather — mountain-forecast</td><td><a href="https://www.mountain-forecast.com/peaks/Mount-Rainier/forecasts/4392">mountain-forecast.com (4392 m)</a></td><td>Jun 14: clear, 25–30 km/h, −3 to −4°C. Jun 15 not yet in window — re-verify Jun 14 evening</td></tr>
+  <tr><td>Weather — NWAC mountain</td><td><a href="https://nwac.us/mountain-weather-forecast/">NWAC Mountain Weather</a></td><td>NWAC avalanche season closed (June); use for mountain weather</td></tr>
+  <tr><td>Snow observations</td><td><a href="https://nwac.us/observations/">NWAC Observations</a></td><td>Monitor for post-storm slab reports through June 14</td></tr>
+  <tr><td>Map / GPX</td><td><a href="https://caltopo.com/m/M1LF3">CalTopo — Ingraham Direct (M1LF3)</a> · <a href="https://caltopo.com/m/0TK5">All Rainier Routes (0TK5)</a></td><td>Load offline on all devices before departure</td></tr>
+</table>
+
+<!-- ── ROUTE OVERVIEW ─────────────────────────────────────────── -->
+<h2>Route Overview</h2>
+<table>
+  <tr><td>Primary route</td><td>Paradise TH (5,400 ft) → Muir Snowfield → Camp Muir (10,188 ft) → Cathedral Gap (10,880 ft) → Ingraham Flats (11,100 ft) → Ingraham Direct up glacier — 3 ladder crossings (11,600–13,200 ft) → summit plateau → Columbia Crest (14,411 ft)</td></tr>
+  <tr><td>Descent</td><td>Same route reversed. <strong>Record GPS ascent track and use on descent</strong> — fresh snow covers boot packs; multiple tracks lead to dead ends at open crevasses.</td></tr>
+  <tr><td>Bail / turnaround</td><td>Reverse ascent route to Paradise from any point. Camp Muir is the primary refuge if weather turns. Do not unrope until below Cathedral Gap. Do not attempt DC or alternate descent without prior familiarity.</td></tr>
+  <tr><td>Key hazards</td><td>
+    (1) Crevasse zone 11,400–13,200 ft: 3 ladder crossings; bridges weaken after sunrise.<br>
+    (2) Wind slab ~12,400 ft from June 7–9 storm: largely settled by June 15 (6 days) — assess surface before committing above.<br>
+    (3) Fresh snow obscuring boot packs — navigation error risk on descent.<br>
+    (4) Serac / rockfall in upper Ingraham exposure zones — move through continuously, no stopping.<br>
+    (5) Summit temp near freezing (32–35°F): snow bridges deteriorate faster — cross before 11:00 AM absolute limit.<br>
+    (6) Afternoon snow softening — slow descent, no glissade likely.<br>
+    (7) False summit before Columbia Crest — brief team on route.
+  </td></tr>
+  <tr><td>Reassessment points</td><td>Camp Muir · Ingraham Flats · 12,400 ft (slab check) · 13,200 ft (hard time check)</td></tr>
+</table>
+
+<!-- ── ROUTE TIMING ────────────────────────────────────────────── -->
+<h2>Route Timing</h2>
+<div class="alert info">
+  <strong>Pace method</strong>
+  BQ-level fitness (sub-3:30 marathon equivalent), 4 experienced climbers. Night ascent on firm snow. Muir Snowfield: ~1,000 ft/hr. Roped glacier: 650 ft/hr including crevasse nav. Ladder transitions: +15 min each (×3). Summit plateau: 600 ft/hr. Descent: 1,000–1,100 ft/hr; no glissade expected.
+</div>
+
+<table class="timing-table">
+  <tr>
+    <th>Milestone</th>
+    <th>Terrain / pace</th>
+    <th style="text-align:right">Elev.</th>
+    <th style="text-align:right">Gain</th>
+    <th style="text-align:right">Dist.</th>
+    <th style="text-align:right">Travel</th>
+    <th>Break / action</th>
+    <th style="text-align:right">Cumul.</th>
+    <th>Clock (planned)</th>
+  </tr>
+  <tr>
+    <td>Paradise TH</td><td>—</td><td>5,400 ft</td><td>0 ft</td><td>0.0 mi</td><td>—</td>
+    <td>Gear check; beacon on; headlamps; route review; inReach depart check-in</td>
+    <td>0:00</td><td><strong>9:00 PM Jun 14</strong></td>
+  </tr>
+  <tr>
+    <td>Panorama Point</td><td>Snowfield; 1,000 ft/hr</td><td>6,800 ft</td><td>+1,400</td><td>1.8 mi</td><td>1:05</td>
+    <td>Drink water; moving eat</td><td>1:05</td><td>10:05 PM</td>
+  </tr>
+  <tr>
+    <td>Mid-Snowfield</td><td>Firm packed snow; 1,000 ft/hr</td><td>8,500 ft</td><td>+1,700</td><td>3.0 mi</td><td>1:25</td>
+    <td>Moving eat</td><td>2:30</td><td>11:30 PM</td>
+  </tr>
+  <tr class="gate-row">
+    <td>Camp Muir ★ GATE 1</td><td>Firm snow; 1,000 ft/hr</td><td>10,188 ft</td><td>+1,688</td><td>4.5 mi</td><td>1:15</td>
+    <td><strong>1 hr rest:</strong> eat; rope up; crampon check; beacon recheck; inReach check-in; cache 0.5–1 L water for descent. No stove/melt.</td>
+    <td>3:45</td><td><strong>arrive 12:45 AM · must reach by 1:30 AM</strong></td>
+  </tr>
+  <tr>
+    <td>Cathedral Gap / rope up</td><td>Rock-snow traverse</td><td>10,880 ft</td><td>+692</td><td>5.1 mi</td><td>0:40</td>
+    <td>Depart Muir 1:45 AM; rope on NLT here; crampon check</td><td>—</td><td><strong>1:45 AM</strong> depart → <strong>2:25 AM</strong></td>
+  </tr>
+  <tr>
+    <td>Ingraham Flats</td><td>Roped glacier; 600 ft/hr</td><td>11,100 ft</td><td>+220</td><td>5.5 mi</td><td>0:20</td>
+    <td>Bridge assessment; slab check; team spacing confirm</td><td>—</td><td><strong>2:45 AM</strong></td>
+  </tr>
+  <tr class="gate-row">
+    <td>Ingraham Direct entry ★ GATE 2</td><td>Roped glacier; crevasse nav</td><td>11,400 ft</td><td>+300</td><td>5.9 mi</td><td>0:25</td>
+    <td>Probe bridges; first ladder nearby</td><td>—</td><td><strong>3:10 AM · must pass by 3:45 AM</strong></td>
+  </tr>
+  <tr class="gate-row">
+    <td>Ladder zone / 13,200 ft ★ GATE 3</td><td>Steep roped glacier; 650 ft/hr + 3 ladders ×15 min</td><td>13,200 ft</td><td>+1,800</td><td>7.4 mi</td><td>3:00</td>
+    <td>Eat; slab assessment at 12,400 ft. <strong>Must reach by 6:20 AM or summit before 8:00 AM is extremely unlikely — consider turning around</strong></td><td>—</td><td><strong>6:10 AM · gate 6:20 AM</strong></td>
+  </tr>
+  <tr class="summit-row">
+    <td>Columbia Crest — SUMMIT</td><td>Steep snow → plateau; 600 ft/hr</td><td>14,411 ft</td><td>+1,211</td><td>8.3 mi</td><td>1:45</td>
+    <td><strong>5-min tag only;</strong> inReach summit check-in; begin descent immediately</td><td>—</td><td><strong>7:55 AM</strong></td>
+  </tr>
+  <tr class="gate-row">
+    <td>⬇ Begin descent</td><td>—</td><td>14,411 ft</td><td>—</td><td>8.3 mi</td><td>—</td>
+    <td><strong>HARD TURNAROUND 8:00 AM — begin descent wherever team stands</strong></td>
+    <td>—</td><td><strong>8:00 AM ↓</strong></td>
+  </tr>
+  <tr>
+    <td>13,200 ft</td><td>Descend roped; 900 ft/hr</td><td>13,200 ft</td><td>−1,211</td><td>9.2 mi</td><td>1:20</td>
+    <td>Cross crevasse zone NLT 9:30 AM — near-freezing summit temps accelerate bridge softening</td><td>—</td><td>9:20 AM</td>
+  </tr>
+  <tr>
+    <td>Ingraham Flats</td><td>Descend roped glacier; 1,000 ft/hr</td><td>11,100 ft</td><td>−2,100</td><td>11.1 mi</td><td>2:05</td>
+    <td>Rope off below Cathedral Gap; drink; eat</td><td>—</td><td>11:25 AM</td>
+  </tr>
+  <tr class="gate-row">
+    <td>Camp Muir</td><td>Traverse-descent; 1,000 ft/hr</td><td>10,188 ft</td><td>−912</td><td>11.6 mi</td><td>0:45</td>
+    <td>Collect cached water; 10 min rest · <strong>Target: 12:00–12:30 PM · Deadline: 2:00 PM</strong></td><td>—</td><td><strong>12:10 PM</strong></td>
+  </tr>
+  <tr>
+    <td>Paradise TH</td><td>Snowfield; 1,100 ft/hr; soft afternoon snow</td><td>5,400 ft</td><td>−4,788</td><td>16.1 mi</td><td>2:30</td>
+    <td>Send return message; log out with NPS</td><td>—</td><td><strong>~2:40 PM</strong></td>
+  </tr>
+</table>
+
+<h3>Checkpoint Gates</h3>
+<p style="font-size:12px;color:#555;margin-bottom:8px;">Start time of 9:00 PM derived by working backwards: 12:10 PM Camp Muir → 8:00 AM descent start → 10 hrs ascent (3:45 travel + 1:00 Muir rest + 5:10 Muir-summit) → 9:00 PM departure. Each 30 min of late departure pushes Camp Muir return ~30 min later. Do not depart after 9:30 PM.</p>
+<table class="gate-table">
+  <tr><th>Gate</th><th>Deadline</th><th>Rule</th></tr>
+  <tr><td>Departure</td><td>9:30 PM Jun 14 latest</td><td>Each 30 min slip delays Camp Muir descent ~30 min — depart by 9:00 PM for 12:10 PM Camp Muir return</td></tr>
+  <tr><td>Gate 1 — Camp Muir arrival</td><td>1:30 AM</td><td>Planned 12:45 AM; if &gt;45 min behind, shorten Muir rest to 30 min and reassess pace</td></tr>
+  <tr><td>Gate 2 — 11,400 ft</td><td>3:45 AM</td><td>Planned 3:10 AM; if late here, summit before 8:00 AM turnaround is at risk</td></tr>
+  <tr><td>Gate 3 — 13,200 ft</td><td>6:20 AM</td><td>Planned 6:10 AM; if not here by 6:20 AM, summit before hard turnaround is extremely unlikely — strongly consider turning around</td></tr>
+  <tr><td>Hard turnaround</td><td>8:00 AM Jun 15</td><td>Begin descent wherever team stands; 5-min summit stop only if standing on the summit</td></tr>
+  <tr><td>Camp Muir descent target</td><td>12:00–12:30 PM</td><td>Planned 12:10 PM; hard deadline 2:00 PM — activate inReach if not reached</td></tr>
+  <tr><td>Overdue callout</td><td>6:00 PM Jun 15</td><td>Emergency contacts activate if no contact from team</td></tr>
+</table>
+
+<!-- ── WEATHER & AVALANCHE ─────────────────────────────────────── -->
+<h2>Avalanche and Weather Plan</h2>
+
+<div class="alert warn">
+  <strong>⚠ Current conditions (June 9, 2026) — storm active, route not viable until Jun 11+ </strong>
+  June 7–9 storm: 1–2 ft new snow above high camps. Wind slab triggered at 12,400 ft. By June 15 (6 days later) slabs largely settled. <strong>Re-verify all conditions by June 14, 6 PM.</strong>
+</div>
+
+<table>
+  <tr><td>Summit forecast — sounding analysis</td><td><strong>June 15, planned summit window 8:30–9:00 AM.</strong> Source: open-meteo pressure-level API, GFS and ECMWF models, Jun 9 2026. Uses 600 hPa level (GFS geopotential height 4,407 m; ECMWF 4,440 m — both within 55 m of summit at 4,392 m). <strong>Re-verify Jun 14 evening on <a href="https://www.windy.com/46.853/-121.760?46.853,-121.760,11">Windy sounding</a> — open sounding panel; read temp and wind at ~4,400 m height level, not the surface forecast.</strong></td></tr>
+  <tr><td>Temperature at summit</td><td>GFS 600 hPa (8–9 AM): 0.0–0.2°C at 4,408 m → lapse-rate correct 16 m down (+0.1°C) → <strong>summit ~0.1–0.3°C (32–33°F).</strong> ECMWF 600 hPa: 1.1–1.3°C at 4,440 m → correct 48 m down (+0.4°C) → <strong>summit ~1.5–1.7°C (~35°F).</strong> Consensus: <strong>32–35°F (0–2°C)</strong> at 8:30–9:00 AM. Essentially at freezing — warmer than Jun 13 (-4°C). Wind chill at 32°F / 17 mph ≈ <strong>18–22°F.</strong></td></tr>
+  <tr><td>Wind at summit</td><td>GFS: <strong>16 mph (26 km/h), NNW 331–333°.</strong> ECMWF: <strong>19 mph (31 km/h), N 0–2°.</strong> Consensus: <strong>16–19 mph, N to NNW</strong> — lighter and calmer than Jun 13 (22 mph). Model agreement within 3 mph.</td></tr>
+  <tr><td>Model disagreement</td><td>Visibility: GFS and ECMWF forecast clear skies; wx.morageology.com shows 66% cloud cover Monday AM — possible marine layer or model divergence. Resolve on Windy sounding Jun 14 evening. If cloud base below summit, re-score visibility +4 = Hard Stop No-Go.</td></tr>
+  <tr><td>Freezing level</td><td>Rising post-storm; estimated 10,000–11,500 ft by afternoon Jun 15. Summit near freezing (0–2°C) means snow bridges deteriorate faster than colder days. <strong>Crevasse zone crossing (11,400–13,200 ft) must be completed before 11:00 AM.</strong></td></tr>
+  <tr><td>NWAC avalanche forecast</td><td>NWAC avalanche season closed (June). 6 days post-storm — slabs largely settled. Monitor <a href="https://nwac.us/observations/">NWAC Observations</a> and <a href="https://mountrainierclimbing.blogspot.com/">NPS Climbing Blog</a> through June 14.</td></tr>
+  <tr><td>Likely avalanche problems</td><td>Wind slab at 12,400 ft largely settled by June 15. Primary concern shifts to wet-snow instability on afternoon descent — reinforces 9:00 AM hard turnaround and exiting crevasse zone before noon.</td></tr>
+  <tr><td>Red flags to watch</td><td>Cracking or whumping in snow; hollow-sounding bridges; rollerballs / pinwheels (solar warming signal — retreat from steep terrain quickly); cloud layer rising to summit; serac activity above route; boot-pack dead ends in crevasse zone.</td></tr>
+  <tr><td>Weather go/no-go limits</td><td>Wind &gt;35 mph: No-Go · Any precipitation: No-Go · Cloud base below summit: No-Go · Freezing level below 9,000 ft: reassess.</td></tr>
+</table>
+
+<!-- ── GO/NO-GO ─────────────────────────────────────────────────── -->
+<h2>Go / No-Go Criteria</h2>
+<h3>Weather Risk Score — June 15, 2026</h3>
+<p style="font-size:12px;color:#666;margin-bottom:8px;"><em>Scored June 9 from open-meteo pressure-level sounding (GFS + ECMWF, 600 hPa interpolated to 4,392 m summit). Re-score June 14 evening from Windy sounding and fresh NOAA data.</em></p>
+
+<table style="max-width:560px">
+  <tr><th>Dimension</th><th>Condition</th><th style="text-align:right">Score</th></tr>
+  <tr><td>Wind</td><td>Moderate — N/NNW 16–19 mph at summit (GFS 16 mph, ECMWF 19 mph, sounding-derived)</td><td style="text-align:right">+2</td></tr>
+  <tr><td>Precipitation</td><td>None forecast per GFS and ECMWF — wx.morageology shows AM clouds, flag for re-verify</td><td style="text-align:right">+1</td></tr>
+  <tr><td>Visibility</td><td>Clear per GFS and ECMWF; 1 model disagrees — resolve on Windy sounding Jun 14</td><td style="text-align:right">+1</td></tr>
+  <tr><td>Summit air temp</td><td>Warm — 32–35°F (0–2°C) at planned summit hour — above 30°F threshold (sounding-derived)</td><td style="text-align:right">+1</td></tr>
+  <tr style="background:#e8f4fd"><td><strong>Weather Risk Score (WRS)</strong></td><td></td><td style="text-align:right"><strong>5</strong></td></tr>
+  <tr><td>Avalanche modifier</td><td>6 days post-storm; slabs largely settled; Level 1 (Low)</td><td style="text-align:right">−1</td></tr>
+  <tr style="background:#e8f4fd"><td><strong>Adjusted Risk Score (ARS)</strong></td><td></td><td style="text-align:right"><strong>4</strong></td></tr>
+  <tr><td>Hard stops triggered</td><td colspan="2">None — verify cloud base on Windy Jun 14 (wx.morageology AM cloud concern)</td></tr>
+  <tr><td>Team experience</td><td colspan="2">Experienced</td></tr>
+</table>
+
+<div class="gonogo-box">
+  <div class="decision">✓ CLIMB — Best window identified</div>
+  <div class="sub">ARS 4 is the most favorable possible score. Jun 15 is better than Jun 13 (lighter wind, warmer temp scores +1 not +2, slabs settled to Level 1). Key flag: verify cloud cover on Windy sounding Jun 14 evening — if cloud base is below summit, visibility becomes a Hard Stop No-Go. Re-score if ARS rises to 8–9 = Caution; ≥10 = Not Recommended.</div>
+</div>
+
+<h3>Before Leaving (June 12, 10:00 PM at Paradise)</h3>
+<ul>
+  <li>NPS Climbing Blog checked within 6 hours of departure</li>
+  <li>NOAA / mountain-forecast.com checked within 6 hours of departure</li>
+  <li>NWAC Observations reviewed for any June 11–12 slab reports</li>
+  <li>All climbing permits confirmed in vehicle</li>
+  <li>Beacon transmit confirmed — all 4 members</li>
+  <li>GPS devices loaded with <code>ingraham-direct-2026-06-13.gpx</code>; offline map cached</li>
+  <li>Water filled; stove and fuel packed</li>
+  <li>Rope teams assigned; crevasse rescue steps reviewed by all</li>
+  <li>Emergency contacts notified of depart time and overdue plan</li>
+</ul>
+
+<h3>Field Abort Criteria</h3>
+<ul>
+  <li>Any person calls stop or requests turnaround — immediate compliance, no debate</li>
+  <li>Sustained wind &gt;35 mph at the team's current elevation</li>
+  <li>Any precipitation begins (rain at any elevation; significant snow above 11,000 ft)</li>
+  <li>Visibility drops below 100 ft; whiteout conditions</li>
+  <li>Any crevasse fall, even self-rescued — reassess before continuing</li>
+  <li>Active avalanche in route corridor, or cracking / whumpfing at 11,400 ft+</li>
+  <li>AMS symptoms in any member above 10,000 ft (headache + nausea, ataxia, behavioral change)</li>
+  <li>Snow bridges sound hollow, sag, or cannot be probed safe — reroute or turn around</li>
+  <li><strong>Missed Gate 3:</strong> not at 13,200 ft by 7:30 AM — turn around immediately</li>
+  <li><strong>Hard turnaround:</strong> 10:00 AM regardless of elevation</li>
+  <li>Serac or rockfall in route corridor — stop; wait minimum 15 min; then retreat or detour</li>
+</ul>
+
+<!-- ── RISKS TABLE ────────────────────────────────────────────── -->
+<h2>Risks and Mitigations</h2>
+<table>
+  <tr><th>Risk</th><th>Likelihood</th><th>Severity</th><th>Mitigation</th></tr>
+  <tr>
+    <td>Crevasse fall — fresh snow obscures openings</td>
+    <td class="risk-med">Medium</td><td class="risk-high">High</td>
+    <td>Rope teams throughout; probe bridges; record and follow GPS ascent track on descent; Z-haul practiced before trip</td>
+  </tr>
+  <tr>
+    <td>Wind slab at 12,400 ft (4 days post-storm)</td>
+    <td class="risk-med">Medium</td><td class="risk-high">High</td>
+    <td>Check NPS blog June 12 AM; assess slab surface at Ingraham Flats; abort if cracking / whumpfing present</td>
+  </tr>
+  <tr>
+    <td>Navigation error on descent — obscured boot packs</td>
+    <td class="risk-high">High</td><td class="risk-high">High</td>
+    <td>Record GPS ascent line; use on descent; place wands at key crevasse zone turns</td>
+  </tr>
+  <tr>
+    <td>Serac / rockfall — upper Ingraham</td>
+    <td class="risk-low">Low–Med</td><td class="risk-high">High</td>
+    <td>Move continuously through exposure zones; no stops under seracs; helmets mandatory above Muir</td>
+  </tr>
+  <tr>
+    <td>AMS — acute mountain sickness</td>
+    <td class="risk-low">Low</td><td class="risk-med">Medium</td>
+    <td>Monitor headache + nausea at 11,000 ft+; descend immediately if symptoms; ibuprofen available</td>
+  </tr>
+  <tr>
+    <td>Hypothermia — night ascent, summit wind</td>
+    <td class="risk-low">Low–Med</td><td class="risk-high">High</td>
+    <td>Insulation accessible at all times; eat and hydrate on schedule; watch teammates; group shelter in pack</td>
+  </tr>
+  <tr>
+    <td>Snow bridge collapse</td>
+    <td class="risk-low">Low–Med</td><td class="risk-high">High</td>
+    <td>One at a time; rope taut; probe before committing; reroute if hollow</td>
+  </tr>
+  <tr>
+    <td>Afternoon snow softening</td>
+    <td class="risk-high">High</td><td class="risk-low">Low</td>
+    <td>Descend upper mountain before noon; accept slow descent; no glissade plan</td>
+  </tr>
+  <tr>
+    <td>Permit not obtained</td>
+    <td class="risk-med">Medium (weekend)</td><td class="risk-low">Low</td>
+    <td>Pre-purchase $82/person via Pay.gov; register Paradise WIC by June 12, 5 PM</td>
+  </tr>
+</table>
+
+<!-- ── GROUP GEAR ─────────────────────────────────────────────── -->
+<h2>Group Gear</h2>
+<table>
+  <tr><th>Item</th><th style="text-align:right">Qty</th><th>Owner</th><th>Notes</th></tr>
+  <tr><td>Glacier rope — 60 m × 9.2 mm</td><td style="text-align:right">2</td><td></td><td>One per 2-person rope team</td></tr>
+  <tr><td>Crevasse rescue kit</td><td style="text-align:right">2 sets</td><td></td><td>Per team: 2 pulleys, 1 progress-capture, 2 prusiks, 1 ascender, 2 pickets, 5 m 7 mm cord</td></tr>
+  <tr><td>Snow pickets</td><td style="text-align:right">6</td><td></td><td>3 per rescue kit; extras for anchor-building on steep upper sections</td></tr>
+  <tr><td>Group stove + fuel</td><td style="text-align:right">1</td><td></td><td>110 g canister min; melt at Camp Muir</td></tr>
+  <tr><td>Cook pot</td><td style="text-align:right">1</td><td></td><td>1 L min</td></tr>
+  <tr><td>First aid kit</td><td style="text-align:right">1</td><td></td><td>Trauma, wound closure, blister, AMS meds, hypothermia management</td></tr>
+  <tr><td>Repair kit</td><td style="text-align:right">1</td><td></td><td>Duct tape, cord, multitool, spare crampon bail, spare batteries</td></tr>
+  <tr><td>Navigation package</td><td style="text-align:right">2 devices</td><td></td><td>Garmin/Gaia with GPX; USGS Mt Rainier East paper topo; compass; altimeter watch</td></tr>
+  <tr><td>Satellite communicator (inReach)</td><td style="text-align:right">1 min</td><td></td><td>Pre-load emergency contacts and overdue plan; test June 11</td></tr>
+  <tr><td>Radios</td><td style="text-align:right">4</td><td></td><td>One per climber; set channel at trailhead</td></tr>
+  <tr><td>Emergency group shelter</td><td style="text-align:right">1</td><td></td><td>4-person bivy sack or SOL emergency blanket</td></tr>
+  <tr><td>Avalanche beacon</td><td style="text-align:right">1 per person</td><td>Each</td><td>Transmit confirmed at trailhead</td></tr>
+  <tr><td>Avalanche shovel</td><td style="text-align:right">1 per person</td><td>Each</td><td>Metal blade preferred</td></tr>
+  <tr><td>Avalanche probe</td><td style="text-align:right">1 per person</td><td>Each</td><td>240 cm min — also used to probe snow bridges</td></tr>
+  <tr><td>Blue bags / WAG bags</td><td style="text-align:right">1 per person</td><td>Each</td><td>Required above Camp Muir and on glacier</td></tr>
+  <tr><td>Wands</td><td style="text-align:right">15–20</td><td></td><td>Mark crevasse zone route and key descent turns</td></tr>
+</table>
+
+<!-- ── INDIVIDUAL GEAR ────────────────────────────────────────── -->
+<h2>Individual Gear</h2>
+<table>
+  <tr><th>Category</th><th>Required items</th></tr>
+  <tr><td>Essentials</td><td>Headlamp (fresh batteries) + spare set · knife · whistle · lighter</td></tr>
+  <tr><td>Footwear / traction</td><td>Mountaineering double boots (crampon-compatible) · 12-point crampons fitted and tested · gaiters</td></tr>
+  <tr><td>Technical</td><td>Ice axe (leashed) · helmet — mandatory above Camp Muir</td></tr>
+  <tr><td>Glacier personal kit</td><td>Harness · belay device · 3 locking carabiners · 2 non-lockers · 2 prusik loops (6 mm × 5 m) · personal sling/tether · 5 m 7 mm cord</td></tr>
+  <tr><td>Avalanche</td><td>Beacon (transmit confirmed) · metal-blade shovel · 240 cm probe</td></tr>
+  <tr><td>Clothing</td><td>Wool/synthetic base layer · mid-layer fleece · insulated puffy jacket · hardshell jacket · waterproof pants · warm hat · balaclava · liner gloves · insulated gloves/mitts · spare insulated gloves · spare wool socks</td></tr>
+  <tr><td>Eye / face</td><td>Glacier glasses with side shields (required) · goggles for wind/whiteout · SPF 50+ sunscreen · SPF lip balm</td></tr>
+  <tr><td>Navigation</td><td>GPS device with offline GPX loaded · backup phone with Gaia offline map</td></tr>
+  <tr><td>Food / water</td><td>2 L at start · moving food per plan · electrolytes · emergency buffer food</td></tr>
+  <tr><td>Personal medical</td><td>Prescription medications · ibuprofen · blister kit · 4 hand warmers min</td></tr>
+  <tr><td>Emergency</td><td>Personal bivy sack · foam sit pad</td></tr>
+  <tr><td>Admin</td><td>Photo ID · printed permit confirmation · NPS entrance receipt or pass</td></tr>
+</table>
+
+<!-- ── ROPE TEAMS ─────────────────────────────────────────────── -->
+<h2>Rope Teams and Glacier / Crevasse Plan</h2>
+<div class="alert info">
+  <strong>Configuration: 2 rope teams of 2, each on a 60 m rope.</strong>
+  Rope length check: 1 interval × 12.5 m + 5 m knots + 15 m rescue reserve = 32.5 m minimum. 60 m rope provides ~42 m free after spacing — sufficient 3:1 haul reserve for 5 m crevasse depth. Stronger navigator leads Team 1.
+</div>
+
+<table>
+  <tr><th>Role</th><th>Team 1</th><th>Team 2</th></tr>
+  <tr><td>Leader (front)</td><td>Climber A</td><td>Climber C</td></tr>
+  <tr><td>Second</td><td>Climber B</td><td>Climber D</td></tr>
+</table>
+
+<table style="margin-top:10px">
+  <tr><td>Rope-up point</td><td>No later than Cathedral Gap (10,880 ft). Rope up earlier if any crevasse hazard visible before Muir.</td></tr>
+  <tr><td>Rope-off point</td><td>Do not unrope until below Cathedral Gap on the Camp Muir side. Ice-rock interfaces at Muir are active crevasse zones.</td></tr>
+  <tr><td>Spacing</td><td>12–15 m between climbers; butterfly knots every ~4 m; rope taut during bridge crossings.</td></tr>
+  <tr><td>Snow bridge strategy</td><td>One climber crosses at a time. Remaining climber braced and self-arrested, rope taut. Probe suspect bridges with avalanche probe before committing. If hollow, sagging, or undercut — reroute.</td></tr>
+  <tr><td>Ladder crossings</td><td>One person at a time; rest of rope team stationary and braced. Do not stack rope on ladder rungs.</td></tr>
+  <tr><td>Crevasse fall response</td><td>Arrest immediately and brace. Stop movement. Build 2-picket anchor. Communicate. Assess injury. Attempt Z-haul self-rescue. If unsuccessful or patient injured: activate inReach SOS, signal other rope team, insulate patient, await NPS rescue.</td></tr>
+  <tr><td>If leader incapacitated</td><td>Stop movement. Hold and anchor rope. Activate inReach SOS. Signal other rope team and nearby parties. Insulate patient from snow.</td></tr>
+  <tr><td>Navigation</td><td><strong>Record GPS ascent track and use on descent</strong> to avoid boot-pack dead ends. Primary: GPS with GPX. Secondary: paper topo + compass + altimeter. Build whiteout bearings at Camp Muir.</td></tr>
+</table>
+
+<!-- ── EMERGENCY PROTOCOL ─────────────────────────────────────── -->
+<h2>Emergency Protocol</h2>
+<table>
+  <tr><th style="text-align:right;width:40px">Step</th><th>Action</th></tr>
+  <tr><td style="text-align:right">1</td><td>Stop movement. Secure rope team. Protect from overhead hazard (serac, rockfall, slab).</td></tr>
+  <tr><td style="text-align:right">2</td><td>Administer first aid. Insulate patient from snow immediately (foam pad + bivy + group shelter).</td></tr>
+  <tr><td style="text-align:right">3</td><td>Determine: self-rescue · assisted rescue (signal other rope team or nearby parties) · emergency callout.</td></tr>
+  <tr><td style="text-align:right">4</td><td><strong>Call 911</strong> if cell available. Otherwise <strong>activate inReach SOS.</strong> Provide: GPS coordinates · patient count · injuries · team size · weather · terrain type · current actions.</td></tr>
+  <tr><td style="text-align:right">5</td><td>NPS Climbing Rangers: <strong>(360) 569-6641.</strong> Pierce County SAR via <strong>911.</strong> Notify emergency contacts via satellite message when stable.</td></tr>
+  <tr><td style="text-align:right">6</td><td>Helicopter response: clear LZ if terrain allows; protect eyes/ears from rotor wash; do not approach aircraft until crew directs.</td></tr>
+</table>
+
+<!-- ── OPEN ITEMS ─────────────────────────────────────────────── -->
+<h2>Open Items</h2>
+<table>
+  <tr><th>Item</th><th>Owner</th><th>Due</th></tr>
+  <tr><td>Final team roster, emergency contacts, medical notes</td><td>Leader</td><td>Before departure Jun 12</td></tr>
+  <tr><td>Vehicle make / model / color / plate</td><td>Leader</td><td>Before departure</td></tr>
+  <tr><td>Climbing permits — $82/person via Pay.gov + in-person registration</td><td>Each climber</td><td>Jun 12, 5 PM</td></tr>
+  <tr><td>NOAA / mountain-forecast.com re-verify</td><td>Leader</td><td>Jun 12, 6 PM</td></tr>
+  <tr><td>NPS Climbing Blog re-check</td><td>Leader</td><td>Jun 12, 6 PM + morning of</td></tr>
+  <tr><td>NWAC Observations — Jun 11–12 slab reports</td><td>Leader</td><td>Jun 12</td></tr>
+  <tr><td>Road status verify (SR-706 / Paradise Rd)</td><td>Leader</td><td>Jun 12</td></tr>
+  <tr><td>Radio channel / privacy code set</td><td>Leader</td><td>Trailhead Jun 12, 10 PM</td></tr>
+  <tr><td>Beacon transmit confirmed — all 4 members</td><td>Leader</td><td>Trailhead</td></tr>
+  <tr><td>All crampons fitted and tested on boots</td><td>Each climber</td><td>Before meeting Jun 12</td></tr>
+  <tr><td>inReach — test messaging; load emergency contacts and overdue plan</td><td>Leader</td><td>Jun 11</td></tr>
+  <tr><td>Rope coiled and rescue kit staged</td><td>Leader</td><td>Before meeting Jun 12</td></tr>
+  <tr><td>Wands packed (15–20)</td><td></td><td>Before meeting Jun 12</td></tr>
+  <tr><td>Offline GPX loaded on all GPS devices</td><td>Each climber</td><td>Jun 12</td></tr>
+  <tr><td>Pre-trip dinner before 6 PM Jun 12</td><td>Each climber</td><td>Jun 12</td></tr>
+</table>
+
+<div style="margin-top:40px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:#888;">
+  Drafted June 9, 2026 · Mount Rainier National Park — Ingraham Direct · 4-person day push ·
+  Conditions must be re-verified by June 12, 6 PM before departure. This plan does not substitute for field judgment.
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
