@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mount Rainier — Disappointment Cleaver | Trip Plan Jun 20 2026</title>
+<style>
+  :root {
+    --blue:   #1a4f7a;
+    --red:    #c0392b;
+    --amber:  #d68910;
+    --green:  #1e8449;
+    --grey:   #4a4a4a;
+    --light:  #f4f6f8;
+    --border: #c8d0da;
+    --font:   'Segoe UI', system-ui, sans-serif;
+    --mono:   'Cascadia Code', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); font-size: 14px; color: #222; background: #fff; line-height: 1.55; }
+
+  /* ── Page header ───────────────────────────────────────────── */
+  .page-header {
+    background: var(--blue);
+    color: #fff;
+    padding: 28px 40px 20px;
+  }
+  .page-header h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.3px; }
+  .page-header .sub { font-size: 13px; opacity: 0.82; margin-top: 6px; }
+  .badge-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge.warn { background: rgba(208,83,16,0.7); border-color: rgba(255,255,255,0.2); }
+  .badge.good { background: rgba(30,132,73,0.7); border-color: rgba(255,255,255,0.2); }
+
+  /* ── Layout ─────────────────────────────────────────────────── */
+  .container { max-width: 1060px; margin: 0 auto; padding: 28px 30px 60px; }
+
+  /* ── Section headings ────────────────────────────────────────── */
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 5px;
+    margin: 30px 0 12px;
+  }
+  h3 { font-size: 13px; font-weight: 700; color: var(--grey); margin: 18px 0 8px; }
+
+  /* ── Tables ─────────────────────────────────────────────────── */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 6px; }
+  th {
+    background: var(--blue);
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 10px;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+  }
+  td { padding: 6px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light); }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  td a { color: var(--blue); text-decoration: none; }
+  td a:hover { text-decoration: underline; }
+
+  /* ── Timing table specifics ─────────────────────────────────── */
+  .timing-table th, .timing-table td { font-size: 12px; padding: 5px 8px; }
+  .timing-table td:nth-child(4),
+  .timing-table td:nth-child(5),
+  .timing-table td:nth-child(6),
+  .timing-table td:nth-child(7) { text-align: right; white-space: nowrap; }
+  .timing-table td:last-child { font-weight: 700; color: var(--blue); white-space: nowrap; }
+  .gate-row td { background: #fff3cd !important; font-weight: 600; }
+  .summit-row td { background: #d4edda !important; font-weight: 700; }
+
+  /* ── Risk table ─────────────────────────────────────────────── */
+  .risk-high { color: var(--red); font-weight: 700; }
+  .risk-med  { color: var(--amber); font-weight: 700; }
+  .risk-low  { color: var(--green); }
+
+  /* ── Go/No-Go score box ────────────────────────────────────── */
+  .gonogo-box {
+    border: 2px solid var(--green);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    background: #f0faf4;
+  }
+  .gonogo-box .decision {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  .gonogo-box .sub { font-size: 12px; color: #555; }
+
+  /* ── Alert boxes ─────────────────────────────────────────────── */
+  .alert {
+    border-left: 4px solid var(--red);
+    background: #fdf0ef;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 13px;
+    border-radius: 0 4px 4px 0;
+  }
+  .alert.warn {
+    border-color: var(--amber);
+    background: #fef9ec;
+  }
+  .alert.info {
+    border-color: var(--blue);
+    background: #eef4fb;
+  }
+  .alert.good {
+    border-color: var(--green);
+    background: #eefaf1;
+  }
+  .alert strong { display: block; margin-bottom: 3px; }
+
+  /* ── Bullet lists ────────────────────────────────────────────── */
+  ul { padding-left: 20px; margin: 6px 0; }
+  li { margin-bottom: 4px; font-size: 13px; }
+
+  /* ── Emergency banner ─────────────────────────────────────────── */
+  .emergency-banner {
+    background: var(--red);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+  .emergency-banner strong { font-size: 15px; display: block; margin-bottom: 4px; }
+
+  /* ── Print ───────────────────────────────────────────────────── */
+  @media print {
+    .page-header { background: #1a4f7a !important; -webkit-print-color-adjust: exact; }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div style="font-size:12px; opacity:0.7; margin-bottom:6px; font-family:var(--mono);">MOUNTAINEERING TRIP PLAN</div>
+  <h1>Mount Rainier — Disappointment Cleaver</h1>
+  <div class="sub">One-Day Car-to-Car Push · June 20, 2026 (Saturday) · Depart Paradise 8:00 PM June 19 · Summit target 7:00 AM</div>
+  <div class="badge-row">
+    <span class="badge">4 Climbers</span>
+    <span class="badge">16 mi RT</span>
+    <span class="badge">9,000 ft gain</span>
+    <span class="badge">14,411 ft summit</span>
+    <span class="badge">Glacier + rock cleaver</span>
+    <span class="badge good">✓ Cooling — refreeze restored</span>
+    <span class="badge warn">⚠ Re-verify conditions Jun 19</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ── EMERGENCY INFO ─────────────────────────────────────────── -->
+<h2>Emergency Information</h2>
+
+<div class="emergency-banner">
+  <strong>IN AN EMERGENCY: Call 911 · Activate inReach SOS if no cell</strong>
+  Pierce County Sheriff dispatches SAR · NPS Climbing Rangers (360) 569-6641 · Overdue callout: 10:00 PM June 20
+</div>
+
+<table>
+  <tr><td>Objective</td><td>Mount Rainier via Disappointment Cleaver — Columbia Crest (14,411 ft) primary; Camp Muir acceptable turnaround</td></tr>
+  <tr><td>Trailhead</td><td>Paradise Trailhead — 46.7867° N, 121.7354° W — 5,400 ft</td></tr>
+  <tr><td>Route / GPX</td><td>
+    <a href="https://caltopo.com/m/0TK5">All Rainier Routes CalTopo (0TK5)</a> ·
+    DC track: <code>dc-route-caltopo.gpx</code> (from CalTopo 0TK5 — verify upper line against current boot pack)
+  </td></tr>
+  <tr><td>County / Jurisdiction</td><td>Pierce County, Washington · Mount Rainier National Park</td></tr>
+  <tr><td>Last return / overdue</td><td>Planned return: <strong>~2:40 PM June 20</strong> · Overdue callout if no contact by <strong>10:00 PM June 20</strong></td></tr>
+  <tr><td>SAR / Emergency</td><td><strong>911</strong> → Pierce County Sheriff/SAR · NPS Climbing Rangers: <strong>(360) 569-6641</strong> · inReach SOS if no cell</td></tr>
+  <tr><td>Nearest hospital</td><td>MultiCare Good Samaritan Hospital — 401 15th Ave SE, Puyallup, WA 98372 · (253) 697-4000 · ~90 min from Paradise</td></tr>
+  <tr><td>Communication</td><td>Cell unreliable above ~9,000 ft. <strong>Garmin inReach required (1 unit min).</strong> Check-ins: trailhead (8 PM), Camp Muir (~11:40 PM), summit/turnaround, Camp Muir on descent, trailhead return.</td></tr>
+  <tr><td>Home-contact instruction</td><td>If no "back at car" message by <strong>10:00 PM Saturday June 20</strong>: call NPS Climbing Rangers (360) 569-6641; if no answer call 911 (Pierce County) — overdue party of 4, Mount Rainier, Disappointment Cleaver from Paradise, expected return ~2:40 PM.</td></tr>
+</table>
+
+<!-- ── GENERAL INFO ────────────────────────────────────────────── -->
+<h2>General Information</h2>
+<table>
+  <tr><td>Distance / gain</td><td>~16 miles round-trip · ~9,000 ft gain · ~9,000 ft loss</td></tr>
+  <tr><td>Trip style</td><td>One-day push (car-to-car) — no overnight camp</td></tr>
+  <tr><td>Permit / registration</td><td>
+    <strong>Climbing fee: $82/person</strong> — pay at
+    <a href="https://www.pay.gov/public/form/start/460895389">Pay.gov</a>. <strong>In-person registration only — self-registration discontinued (NPS, Jun 9).</strong><br>
+    Paradise Wilderness Information Center, 7:30 AM–5:00 PM, day-of or up to 24 h ahead → <strong>register Friday June 19 before 5:00 PM.</strong><br>
+    NPS entrance: $35/vehicle or <a href="https://store.usgs.gov/america-the-beautiful-passes">America the Beautiful Pass</a>.
+  </td></tr>
+</table>
+
+<!-- ── TEAM CONTACTS ───────────────────────────────────────────── -->
+<h2>Team Contacts — Emergency Contact Sheet</h2>
+<p style="font-size:12px; color:#666; margin-bottom:8px;"><em>Fill before departure. Paper copies in each vehicle and with the home contact. Leave blank in shared/committed copies.</em></p>
+<table>
+  <tr>
+    <th>Climber</th><th>Phone</th><th>Emergency contact</th><th>Relationship</th><th>EC phone</th><th>Medical notes</th><th>inReach / radio</th>
+  </tr>
+  <tr><td>(Leader)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<!-- ── LOGISTICS ──────────────────────────────────────────────── -->
+<h2>Logistics</h2>
+<table>
+  <tr><td>Meet time / location</td><td>June 19, 7:00 PM — Paradise parking lot (registration done at WIC before 5 PM)</td></tr>
+  <tr><td>Trailhead departure</td><td><strong>June 19, 8:00 PM</strong></td></tr>
+  <tr><td>Expected return</td><td>June 20, ~2:40 PM</td></tr>
+  <tr><td>Last acceptable contact</td><td><strong>June 20, 10:00 PM</strong> — triggers overdue callout</td></tr>
+  <tr><td>Driver / vehicle</td><td>TBD — Leader to fill</td></tr>
+  <tr><td>Required passes</td><td>NPS entrance $35/vehicle or America the Beautiful Pass · Climbing fee $82/person via Pay.gov (pre-pay)</td></tr>
+  <tr><td>Road access</td><td>SR-706 (Nisqually entrance) open year-round to Paradise; White River and Stevens Canyon entrances open (NPS, Jun 9). Verify at <a href="https://www.nps.gov/mora/planyourvisit/weather.htm">NPS road status</a> June 19.</td></tr>
+  <tr><td>Camp / lodging</td><td>Day push — no camp. <strong>Camp Muir public shelter CLOSED</strong> (construction) — 30-minute stop only, full exposure.</td></tr>
+  <tr><td>Water</td><td>Carry <strong>3.5–4 L per person</strong> (cooler than the heat plan). Refill at Pebble Creek (~7,200 ft, filter). Cache 0.5–1 L/person at Camp Muir for descent. No reliable water above Panorama Point.</td></tr>
+  <tr><td>Human waste</td><td>WAG bags required above Camp Muir and on glacier. Privy at Camp Muir.</td></tr>
+</table>
+
+<!-- ── FOOD / WATER ────────────────────────────────────────────── -->
+<h2>Food / Water / Waste Plan</h2>
+<table>
+  <tr><td>Pre-trip meal</td><td>Dinner June 19 ~3:30–4:30 PM — 700–900 cal, high carb, easy to digest (departing 8:00 PM)</td></tr>
+  <tr><td>Moving food</td><td>300–400 cal/hr; eat every 45–60 min — ~4,000–4,500 cal/person; <strong>freeze-hardy</strong> (cold night, summit ~26–30°F — nothing that hardens)</td></tr>
+  <tr><td>Emergency buffer</td><td>800 cal/person in a separate bag</td></tr>
+  <tr><td>Water budget</td><td>3.5–4 L carried + Pebble Creek refill + Camp Muir cache for descent</td></tr>
+  <tr><td>Electrolytes</td><td>Every 2 hours above 10,000 ft; drink before thirsty</td></tr>
+  <tr><td>Sun protection</td><td>SPF 50+ applied at Camp Muir <em>before sunrise</em>; reapply at summit and Muir descent; glacier glasses mandatory</td></tr>
+</table>
+
+<!-- ── PLANNING RESOURCES ─────────────────────────────────────── -->
+<h2>Planning Resources</h2>
+<table>
+  <tr><th>Category</th><th>Source</th><th>Current note (as of June 16, 2026)</th></tr>
+  <tr><td>Weather — UW Rainier (PRIMARY)</td><td><a href="https://a.atmos.washington.edu/data/rainier_report.html">UW Rainier Recreational Forecast</a></td><td><strong>Jun 16 issue: cooling ridge offshore; Fri FL 13,500; Sat sunny FL 13,000; Sat night FL 13,000 (refreeze).</strong> New issue ~4 AM daily — the Jun 19 issue brings Saturday into the summit temp/wind table: <strong>decision check</strong></td></tr>
+  <tr><td>NPS Climbing Blog</td><td><a href="https://mountrainierclimbing.blogspot.com/">mountrainierclimbing.blogspot.com</a></td><td>Latest route post Jun 9 (ID/DC area). <strong>Re-check for a newer DC update before departure</strong> — strong winds Jun 16 may have changed surfaces</td></tr>
+  <tr><td>Weather — NOAA point</td><td><a href="https://forecast.weather.gov/MapClick.php?lat=46.8529&amp;lon=-121.7604">NOAA Summit Forecast</a></td><td>Saturday enters the 7-day window ~Jun 18 — re-verify Jun 19 evening</td></tr>
+  <tr><td>Weather — Windy sounding</td><td><a href="https://www.windy.com/46.853/-121.760?46.853,-121.760,11">Windy — Rainier Summit</a></td><td><strong>Sounding panel at ~4,400 m:</strong> Sat AM 26–30°F, WNW 20–23 mph; clear, very dry</td></tr>
+  <tr><td>Weather — full analysis</td><td><code>reports/weather-analysis.md</code></td><td>Generated Jun 16 (refreeze restored) — re-run Jun 19</td></tr>
+  <tr><td>Snow observations</td><td><a href="https://nwac.us/observations/">NWAC Observations</a></td><td>NWAC seasonal avalanche forecast closed — observations + NPS blog are the avalanche sources</td></tr>
+  <tr><td>Map / GPX</td><td><a href="https://caltopo.com/m/0TK5">CalTopo 0TK5</a> · <code>dc-route-caltopo.gpx</code></td><td>Load offline on all devices before departure</td></tr>
+</table>
+
+<!-- ── ROUTE OVERVIEW ─────────────────────────────────────────── -->
+<h2>Route Overview</h2>
+<table>
+  <tr><td>Route (DC)</td><td>Paradise TH (5,400 ft) → Muir Snowfield → <strong>Camp Muir (10,188 ft — rope up here)</strong> → Cathedral Gap (10,880 ft) → Ingraham Flats (11,100 ft) → DC entry / cleaver toe (~11,300 ft) → Disappointment Cleaver spine (rock/mixed; rockfall zone) → top of DC (~12,300 ft) → upper Ingraham/Emmons → ID/DC junction (~13,000 ft, verify) → summit plateau → Columbia Crest (14,411 ft)</td></tr>
+  <tr><td>Descent</td><td>Same route reversed. <strong>Record GPS ascent track and use on descent.</strong> Descend the cleaver before afternoon sun loosens rock.</td></tr>
+  <tr><td>Bail / turnaround</td><td>Reverse route from any point; Camp Muir is the refuge. Stay roped on the glacier; manage rock/mixed down-climbing carefully on the cleaver.</td></tr>
+  <tr><td>Key hazards</td><td>
+    (1) <strong>Cleaver rockfall</strong> — the DC is a rock rib; rock loosens as the sun hits it. Descend before ~10–11 AM; helmets from Muir; tight spacing, no stopping in the fall line.<br>
+    (2) <strong>Firm / hard refrozen snow &amp; névé/ice</strong> — this week's high winds scoured the upper mountain and cooling restored a hard refreeze. Confident cramponing and self-arrest required; <strong>steel crampons</strong> (see Surface note).<br>
+    (3) Wind slab on lee (E–SE) aspects from strong NW winds Jun 16 — assess directly.<br>
+    (4) Crevasses on the Ingraham/Emmons above the cleaver — roped, probe bridges.<br>
+    (5) Moderate WNW wind 20–23 mph + wind chill ~10–14°F — full insulation.<br>
+    (6) Serac / icefall on the Ingraham flank — move continuously through exposure.
+  </td></tr>
+  <tr><td>Reassessment points</td><td>Camp Muir · Ingraham Flats (cleaver conditions, wind) · top of DC (time + surface) · ID/DC junction (time gate) · Summit (30-min cap)</td></tr>
+</table>
+
+<!-- ── ROUTE TIMING ────────────────────────────────────────────── -->
+<h2>Route Timing — Disappointment Cleaver</h2>
+<div class="alert info">
+  <strong>Pace method</strong>
+  BQ-level fitness, 4 experienced climbers. Muir Snowfield ~1,000 ft/hr (firm refrozen night snow). Cleaver rock/mixed ~500 ft/hr in crampons. Roped glacier above the cleaver 600 ft/hr incl. crevasse nav. Summit plateau 600 ft/hr. Descent 900–1,100 ft/hr; careful down-climbing on the cleaver. <strong>Schedule anchored to a 7:00 AM summit:</strong> 8:00 PM departure, 30-min Camp Muir stop (shelter closed; rope up there), 30-min summit stay, Camp Muir return before noon. Gates are built into the rows below. Sunset ~9:05 PM (first hour in daylight); sunrise ~5:10 AM (light from the cleaver top onward).
+</div>
+
+<table class="timing-table">
+  <tr>
+    <th>Milestone</th>
+    <th>Terrain / pace</th>
+    <th style="text-align:right">Elev.</th>
+    <th style="text-align:right">Gain</th>
+    <th style="text-align:right">Dist.</th>
+    <th style="text-align:right">Travel</th>
+    <th>Break / action</th>
+    <th style="text-align:right">Cumul.</th>
+    <th>Clock (planned)</th>
+  </tr>
+  <tr>
+    <td>Paradise TH</td><td>—</td><td>5,400 ft</td><td>0 ft</td><td>0.0 mi</td><td>—</td>
+    <td>Gear check; beacon on; inReach depart check-in (daylight start)</td>
+    <td>0:00</td><td><strong>8:00 PM Jun 19</strong></td>
+  </tr>
+  <tr>
+    <td>Panorama Point</td><td>Snowfield; 1,000 ft/hr</td><td>6,800 ft</td><td>+1,400</td><td>1.8 mi</td><td>1:05</td>
+    <td>Water; moving eat; headlamps on around here</td><td>1:05</td><td>9:05 PM</td>
+  </tr>
+  <tr>
+    <td>Mid-Snowfield</td><td>Firm refrozen snow; 1,000 ft/hr</td><td>8,500 ft</td><td>+1,700</td><td>3.0 mi</td><td>1:25</td>
+    <td>Moving eat</td><td>2:30</td><td>10:30 PM</td>
+  </tr>
+  <tr class="gate-row">
+    <td>Camp Muir ★ GATE 1</td><td>Firm snow; 1,000 ft/hr</td><td>10,188 ft</td><td>+1,688</td><td>4.5 mi</td><td>1:10</td>
+    <td><strong>30 min stop:</strong> eat; <strong>ROPE UP</strong>; beacon recheck; cache 0.5–1 L water; inReach check-in. <strong>Arrive by 12:30 AM; depart Muir by 12:10 AM</strong></td>
+    <td>3:40</td><td><strong>11:40 PM · depart 12:10 AM</strong></td>
+  </tr>
+  <tr>
+    <td>Cathedral Gap</td><td>Rock-snow traverse, roped</td><td>10,880 ft</td><td>+692</td><td>5.1 mi</td><td>0:40</td>
+    <td>Crampon / knot check on the move</td><td>—</td><td><strong>12:50 AM</strong></td>
+  </tr>
+  <tr>
+    <td>Ingraham Flats</td><td>Roped glacier; 600 ft/hr</td><td>11,100 ft</td><td>+220</td><td>5.5 mi</td><td>0:20</td>
+    <td>Assess cleaver conditions + wind; confirm spacing</td><td>—</td><td><strong>1:10 AM</strong></td>
+  </tr>
+  <tr>
+    <td>DC entry / cleaver toe</td><td>Glacier → rock toe</td><td>~11,300 ft</td><td>+200</td><td>5.8 mi</td><td>0:35</td>
+    <td>Bottom traverse — fixed line often present; rockfall zone begins; helmets on, tight spacing</td><td>—</td><td><strong>1:45 AM</strong></td>
+  </tr>
+  <tr>
+    <td>Top of Disappointment Cleaver</td><td>Rock/mixed; ~500 ft/hr</td><td>~12,300 ft</td><td>+1,000</td><td>6.4 mi</td><td>2:00</td>
+    <td>No stopping in fall line; regroup briefly out of fall line on top</td><td>—</td><td><strong>3:45 AM</strong></td>
+  </tr>
+  <tr class="gate-row">
+    <td>ID/DC junction ★ GATE 2</td><td>Roped glacier; 600 ft/hr</td><td>~13,000 ft</td><td>+700</td><td>6.9 mi</td><td>1:05</td>
+    <td>Eat; probe bridges. <strong>Must arrive by 5:30 AM or turn around</strong></td><td>—</td><td><strong>4:50 AM</strong></td>
+  </tr>
+  <tr class="summit-row">
+    <td>Columbia Crest — SUMMIT</td><td>Steep snow → plateau; 600 ft/hr</td><td>14,411 ft</td><td>+1,411</td><td>8.0 mi</td><td>2:10</td>
+    <td><strong>Target 7:00 AM · 30-min stay</strong> (arrive after 7:00 → tag and go); inReach summit check-in; full insulation (wind chill ~10–14°F)</td><td>—</td><td><strong>7:00 AM</strong></td>
+  </tr>
+  <tr class="gate-row">
+    <td>⬇ Begin descent</td><td>—</td><td>14,411 ft</td><td>—</td><td>8.0 mi</td><td>—</td>
+    <td><strong>Depart summit 7:30 AM · HARD TURNAROUND 7:30 AM — if not on top by then, descend wherever team stands</strong></td>
+    <td>—</td><td><strong>7:30 AM ↓</strong></td>
+  </tr>
+  <tr>
+    <td>ID/DC junction</td><td>Descend roped; 1,000 ft/hr</td><td>~13,000 ft</td><td>−1,411</td><td>9.1 mi</td><td>1:25</td>
+    <td>Probe bridges; keep moving</td><td>—</td><td>8:55 AM</td>
+  </tr>
+  <tr>
+    <td>Top of Disappointment Cleaver</td><td>Roped glacier → rock top</td><td>~12,300 ft</td><td>−700</td><td>9.6 mi</td><td>0:40</td>
+    <td><strong>Descend cleaver before sun loosens rock</strong></td><td>—</td><td>9:35 AM</td>
+  </tr>
+  <tr>
+    <td>DC entry / cleaver toe</td><td>Rock/mixed down-climb</td><td>~11,300 ft</td><td>−1,000</td><td>10.2 mi</td><td>1:15</td>
+    <td>Careful down-climbing; rockfall worst as sun hits — tight spacing, keep moving</td><td>—</td><td><strong>10:50 AM</strong></td>
+  </tr>
+  <tr>
+    <td>Ingraham Flats → Cathedral Gap</td><td>Roped glacier/traverse</td><td>10,880 ft</td><td>−420</td><td>10.9 mi</td><td>0:40</td>
+    <td>Continuous movement under serac exposure</td><td>—</td><td>11:30 AM</td>
+  </tr>
+  <tr class="gate-row">
+    <td>Camp Muir</td><td>Snow</td><td>10,188 ft</td><td>−692</td><td>11.6 mi</td><td>0:25</td>
+    <td>De-rope; collect cached water; 20 min rest; sunscreen; inReach check-in · <strong>Target: before 12:00 PM</strong></td><td>—</td><td><strong>11:55 AM · depart 12:15 PM</strong></td>
+  </tr>
+  <tr>
+    <td>Panorama Point</td><td>Softening snow; plunge-step</td><td>6,800 ft</td><td>−3,388</td><td>14.3 mi</td><td>1:45</td>
+    <td>Drink, eat</td><td>—</td><td>2:00 PM</td>
+  </tr>
+  <tr>
+    <td>Paradise TH</td><td>Snowfield → trail</td><td>5,400 ft</td><td>−1,400</td><td>16.0 mi</td><td>0:40</td>
+    <td>Send return message; log out with NPS</td><td>—</td><td><strong>~2:40 PM</strong></td>
+  </tr>
+</table>
+
+<h3>Gates</h3>
+<ul>
+  <li><strong>Camp Muir</strong> — arrive by 12:30 AM (planned 11:40 PM). More than 45 min behind: cut Muir stop short or turn around.</li>
+  <li><strong>ID/DC junction (~13,000 ft)</strong> — arrive by 5:30 AM (planned 4:50 AM). Miss = turn around.</li>
+  <li><strong>Summit</strong> — target 7:00 AM, 30-min stay if on top by 7:00, else tag and go. <strong>Hard turnaround 7:30 AM</strong> wherever the team stands.</li>
+  <li><strong>Cleaver descent</strong> — below the cleaver toe before ~11 AM (planned 10:50 AM); <strong>Camp Muir return before noon</strong> (planned 11:55 AM) — beats the afternoon rock-shedding and snow-softening.</li>
+</ul>
+
+<!-- ── WEATHER & AVALANCHE ─────────────────────────────────────── -->
+<h2>Avalanche and Weather Plan</h2>
+
+<div class="alert good">
+  <strong>✓ Conditions basis (June 16) — heat broke, refreeze restored</strong>
+  Record heat of Jun 14–15 has ended; cooling onshore flow dropped the freezing level to ~13,000 ft (below the summit) with clear, cold Saturday-night skies — <strong>the overnight refreeze is back</strong>, the exact condition whose absence drove the postponement. Strong NW winds Jun 16 (summit gust ~55 mph) scoured and hardened the upper mountain. <strong>Re-verify all conditions June 19.</strong>
+</div>
+
+<table>
+  <tr><td>Primary forecast</td><td><strong><a href="https://a.atmos.washington.edu/data/rainier_report.html">UW Rainier Recreational Forecast</a></strong> (new issue ~4 AM daily). Jun 16 issue: cooling ridge offshore — Fri FL 13,500 → <strong>Sat sunny, FL 13,000 → Sat night FL 13,000 (summit refreezes)</strong>. The Jun 19 issue brings Saturday into the summit temp/wind table — <strong>that is the decision check</strong>.</td></tr>
+  <tr><td>Summit conditions, Saturday AM</td><td>26–30°F free-air (ECMWF/GFS 600 hPa — below freezing); wind <strong>WNW 20–23 mph</strong> in the climb window, ramping to ~27–29 by evening; clear, zero mid/low cloud, very dry. Wind chill ~10–14°F — full insulation at summit.</td></tr>
+  <tr><td>Freezing level / refreeze</td><td><strong>FL ~13,000 ft Saturday and Saturday night — below the summit. Overnight refreeze restored.</strong> Surfaces firm to hard névé/ice; bridges firmer than the heat window.</td></tr>
+  <tr><td>Avalanche problems</td><td><strong>Wet-loose largely shut down by refreeze</strong> for an early start (afternoon solar can still loosen surface snow on steep solar aspects — be off them by late morning). <strong>Wind slab</strong> on lee (E–SE) aspects from this week's strong NW winds is the primary concern — assess directly at Ingraham Flats / on the cleaver. NWAC seasonal forecast closed — NPS blog + field assessment are the sources.</td></tr>
+  <tr><td>Red flags</td><td>Cracking or whumpfing on lee slopes · hollow wind-slab feel · rockfall on the cleaver · cloud building to summit · serac activity</td></tr>
+  <tr><td>Surface / footing</td><td>Firm refrozen snow and possible ice/névé from wind-scour — <strong>steel crampons, confident front-pointing and self-arrest</strong>. Aluminum crampons are not appropriate here (rock on the cleaver + hard ice).</td></tr>
+  <tr><td>Go/no-go limits</td><td>Wind ≥35 mph sustained: No-Go · Any precipitation: No-Go · Cloud base below summit: No-Go · Unmanageable rockfall or unstable wind slab on the cleaver: turn around</td></tr>
+</table>
+
+<!-- ── GO/NO-GO ─────────────────────────────────────────────────── -->
+<h2>Go / No-Go Criteria</h2>
+<h3>Weather Risk Score — June 20, 2026</h3>
+<p style="font-size:12px;color:#666;margin-bottom:8px;"><em>Scored June 16 from the UW report + ECMWF/GFS 600 hPa sounding data. Re-score June 19 from the fresh UW issue and Windy sounding.</em></p>
+
+<table style="max-width:560px">
+  <tr><th>Dimension</th><th>Condition</th><th style="text-align:right">Score</th></tr>
+  <tr><td>Wind</td><td>WNW 20–23 mph in the climb window; moderate, under limits</td><td style="text-align:right">+2</td></tr>
+  <tr><td>Precipitation</td><td>None forecast — all sources agree</td><td style="text-align:right">+1</td></tr>
+  <tr><td>Visibility</td><td>Clear; zero mid/low cloud; very dry</td><td style="text-align:right">+1</td></tr>
+  <tr><td>Summit air temp</td><td>26–30°F — below freezing, <strong>refreeze restored</strong> (favorable; cold but normal alpine)</td><td style="text-align:right">+1</td></tr>
+  <tr style="background:#e8f4fd"><td><strong>Weather Risk Score (WRS)</strong></td><td></td><td style="text-align:right"><strong>5</strong></td></tr>
+  <tr><td>Avalanche / snowpack modifier</td><td>Refreeze restored; storm snow consolidated (~12 days); residual wind-slab on lee aspects</td><td style="text-align:right">−1</td></tr>
+  <tr style="background:#e8f4fd"><td><strong>Adjusted Risk Score (ARS)</strong></td><td></td><td style="text-align:right"><strong>4</strong></td></tr>
+  <tr><td>Hard stops triggered</td><td colspan="2">None as forecast — no precip, no sustained ≥35 mph, no whiteout</td></tr>
+  <tr><td>Team experience</td><td colspan="2">Experienced</td></tr>
+</table>
+
+<div class="gonogo-box">
+  <div class="decision">✓ GO — Favorable (ARS 4)</div>
+  <div class="sub">The postponement achieved its purpose: cooling restored the overnight refreeze that was absent June 15. Saturday is sunny, dry, cold, with moderate WNW wind. Residual concerns are managed, not show-stoppers: firm/icy surfaces (steel crampons, careful cramponing), cleaver rockfall (descend before midday), and wind slab on lee aspects (assess directly). <strong>No-Go triggers:</strong> June 19 UW report shows Saturday summit wind ≥35 mph or precip; NPS blog or field assessment finds unstable wind slab or unmanageable rockfall on the cleaver.</div>
+</div>
+
+<h3>Before Leaving (June 19, ~7:30 PM at Paradise)</h3>
+<ul>
+  <li>UW Rainier report (Jun 19, 4 AM issue) re-checked — Saturday now in summit table; wind &lt;35 mph confirmed</li>
+  <li>NPS Climbing Blog checked — any newer DC route / surface report since Jun 9</li>
+  <li>NOAA point forecast + Windy sounding checked ~6 PM</li>
+  <li>Registered in person at Paradise WIC (closed 5 PM — must already be done)</li>
+  <li>Beacon transmit confirmed — all 4 members; radios on channel; inReach test sent</li>
+  <li>GPX loaded on 2+ devices: <code>dc-route-caltopo.gpx</code></li>
+  <li>Water 3.5–4 L per person; cache bottles designated</li>
+  <li><strong>Steel crampons</strong> fitted and tested on all boots</li>
+  <li>Rope teams assigned; crevasse rescue sequence reviewed by all</li>
+  <li>Emergency contact sheet complete; home contact briefed: <strong>overdue callout 10:00 PM June 20</strong></li>
+</ul>
+
+<h3>Field Abort Criteria</h3>
+<ul>
+  <li>Any person calls stop or requests turnaround — immediate compliance, no debate</li>
+  <li>Unstable wind slab (cracking, whumpfing, hollow feel) on lee aspects — retreat / reroute</li>
+  <li>Unmanageable rockfall on the cleaver — wait, detour, or turn around</li>
+  <li>Sustained wind &gt;35 mph at team's elevation; any precipitation; cloud base below team</li>
+  <li>Any crevasse fall, even self-rescued — reassess before continuing</li>
+  <li>AMS symptoms above 10,000 ft (headache + nausea, ataxia, behavioral change) — descend</li>
+  <li><strong>Missed gate = turn around: Muir 12:30 AM · junction 5:30 AM · hard turnaround 7:30 AM</strong></li>
+</ul>
+
+<!-- ── RISKS TABLE ────────────────────────────────────────────── -->
+<h2>Risks and Mitigations</h2>
+<table>
+  <tr><th>Risk</th><th>Likelihood</th><th>Severity</th><th>Mitigation</th></tr>
+  <tr>
+    <td>Cleaver rockfall</td>
+    <td class="risk-med">Medium</td><td class="risk-high">High</td>
+    <td>Helmets from Muir; tight spacing; no stopping in fall line; descend cleaver before ~noon</td>
+  </tr>
+  <tr>
+    <td>Firm/icy surfaces — slip / failed self-arrest</td>
+    <td class="risk-med">Medium</td><td class="risk-high">High</td>
+    <td>Steel crampons; confident front-pointing; axe ready; short-rope exposed sections</td>
+  </tr>
+  <tr>
+    <td>Wind slab on lee aspects</td>
+    <td class="risk-med">Medium</td><td class="risk-high">High</td>
+    <td>Assess at Flats / on cleaver; avoid loaded E–SE rolls; retreat on cracking/whumpfing</td>
+  </tr>
+  <tr>
+    <td>Crevasse fall (above cleaver)</td>
+    <td class="risk-med">Medium</td><td class="risk-high">High</td>
+    <td>Rope discipline; probing; rescue kits by position; Z-haul reviewed Jun 18</td>
+  </tr>
+  <tr>
+    <td>Wind chill (~10–14°F at summit)</td>
+    <td class="risk-med">Medium</td><td class="risk-med">Medium</td>
+    <td>Full insulation; limit summit exposure; hand warmers; watch for frostnip</td>
+  </tr>
+  <tr>
+    <td>Navigation error on descent</td>
+    <td class="risk-med">Medium</td><td class="risk-high">High</td>
+    <td>Record GPS ascent track; follow it down; whiteout bearings written at Muir</td>
+  </tr>
+  <tr>
+    <td>Serac / icefall (Ingraham flank)</td>
+    <td class="risk-low">Low–Med</td><td class="risk-high">High</td>
+    <td>Continuous movement through exposure zones; no breaks</td>
+  </tr>
+  <tr>
+    <td>Overdue / benighted</td>
+    <td class="risk-low">Low</td><td class="risk-med">Medium</td>
+    <td>Gates; inReach check-ins; 10:00 PM callout protocol briefed to home contact</td>
+  </tr>
+</table>
+
+<!-- ── GROUP GEAR ─────────────────────────────────────────────── -->
+<h2>Group Gear</h2>
+<table>
+  <tr><th>Item</th><th style="text-align:right">Qty</th><th>Owner</th><th>Notes</th></tr>
+  <tr><td>Glacier rope — 60 m × 9.2 mm</td><td style="text-align:right">1</td><td></td><td>Single rope; all 4 climbers; 15 m intervals (45 m active + 7.5 m coiled each end)</td></tr>
+  <tr><td>Snow pickets</td><td style="text-align:right">2</td><td></td><td>Equalized anchor for crevasse rescue (firm refrozen snow holds well)</td></tr>
+  <tr><td>Avalanche beacon</td><td style="text-align:right">1 per person</td><td>Each</td><td>Transmit confirmed at trailhead</td></tr>
+  <tr><td>Avalanche shovel</td><td style="text-align:right">2</td><td></td><td>Also for probing bridges / slab pits</td></tr>
+  <tr><td>Probe</td><td style="text-align:right">2</td><td></td><td>Bridge + wind-slab assessment</td></tr>
+  <tr><td>Trekking poles</td><td style="text-align:right">per climber</td><td>Each</td><td>Snowfield approach; stow at Camp Muir</td></tr>
+  <tr><td>First aid kit</td><td style="text-align:right">1</td><td></td><td>Trauma, blister, AMS meds; cold-injury awareness</td></tr>
+  <tr><td>Repair kit</td><td style="text-align:right">1</td><td></td><td>Duct tape, cord, multitool, spare crampon bail, batteries</td></tr>
+  <tr><td>Navigation package</td><td style="text-align:right">2 devices</td><td></td><td>DC GPX on both; USGS Mt Rainier East topo; compass; altimeter</td></tr>
+  <tr><td>Satellite communicator (inReach)</td><td style="text-align:right">1 min</td><td></td><td>Contacts + overdue 10:00 PM Jun 20 pre-loaded; tested Jun 18</td></tr>
+  <tr><td>Radios</td><td style="text-align:right">4</td><td></td><td>One per climber; channel set at trailhead</td></tr>
+  <tr><td>Emergency group shelter</td><td style="text-align:right">1</td><td></td><td>4-person bivy sack or SOL blanket</td></tr>
+  <tr><td>Blue bags / WAG bags</td><td style="text-align:right">1 per person</td><td>Each</td><td>Required above Camp Muir and on glacier</td></tr>
+</table>
+
+<!-- ── INDIVIDUAL GEAR ────────────────────────────────────────── -->
+<h2>Individual Gear</h2>
+<h3>All 4 climbers — standard kit</h3>
+<table>
+  <tr><th>Category</th><th>Required items</th></tr>
+  <tr><td>Essentials</td><td>Headlamp (fresh batteries) + spare set · knife · whistle · lighter</td></tr>
+  <tr><td>Footwear / traction</td><td>Mountaineering double boots · <strong>steel 12-point crampons fitted and tested</strong> (firm/icy refrozen surfaces + rock cleaver — not aluminum) · gaiters</td></tr>
+  <tr><td>Technical</td><td>Ice axe (leashed) · helmet — on from Camp Muir (cleaver rockfall)</td></tr>
+  <tr><td>Harness</td><td>Glacier-capable harness; chest-harness compatible</td></tr>
+  <tr><td>Clothing</td><td>Base layer · fleece · insulated puffy · hardshell + waterproof pants · warm hat · balaclava · liner gloves · insulated gloves + spares · spare socks. Cold night + WNW wind — bring the full insulation layer</td></tr>
+  <tr><td>Eye / face</td><td>Glacier glasses with side shields (required) · goggles · SPF 50+ · SPF lip balm</td></tr>
+  <tr><td>Navigation</td><td>GPS device with offline map + DC route · backup phone with Gaia offline</td></tr>
+  <tr><td>Food / water</td><td>3.5–4 L water · moving food per plan · electrolytes · 800 cal emergency buffer</td></tr>
+  <tr><td>Personal medical</td><td>Prescription meds · ibuprofen · blister kit · hand warmers (cold summit)</td></tr>
+  <tr><td>Emergency</td><td>Personal bivy sack</td></tr>
+  <tr><td>Admin</td><td>Photo ID · permit confirmation · NPS entrance receipt or pass</td></tr>
+</table>
+
+<h3>Crevasse rescue kit — middle tie-in (Climbers B and C, each carry)</h3>
+<table>
+  <tr><th>Item</th><th style="text-align:right">Qty</th><th>Notes</th></tr>
+  <tr><td>Locking carabiner — butterfly knot attachment</td><td style="text-align:right">1</td><td>Clips the butterfly knot to harness</td></tr>
+  <tr><td>Locking carabiner — prusik attachment</td><td style="text-align:right">1</td><td></td></tr>
+  <tr><td>Locking carabiner with pulley</td><td style="text-align:right">1</td><td>Redirect for haul system</td></tr>
+  <tr><td>Chest harness</td><td style="text-align:right">1</td><td>Keeps climber upright in crevasse</td></tr>
+  <tr><td>Foot loop</td><td style="text-align:right">1</td><td>Self-rescue ascent</td></tr>
+  <tr><td>Prusik loops (6 mm)</td><td style="text-align:right">2</td><td>One chest, one foot</td></tr>
+  <tr><td>Sling — personal anchor (PA)</td><td style="text-align:right">1</td><td>Attach to anchor while rescuers build haul</td></tr>
+</table>
+
+<h3>Crevasse rescue kit — rescuer (Leader and Tail, each carry all middle items PLUS)</h3>
+<table>
+  <tr><th>Item</th><th style="text-align:right">Qty</th><th>Notes</th></tr>
+  <tr><td>Additional sling</td><td style="text-align:right">1</td><td>Extended anchor equalization</td></tr>
+  <tr><td>Additional prusik</td><td style="text-align:right">1</td><td>Backup / haul progress capture</td></tr>
+  <tr><td>Cordlette</td><td style="text-align:right">1</td><td>Equalized 2-picket anchor</td></tr>
+  <tr><td>Locking carabiner with rappel device</td><td style="text-align:right">1</td><td>Haul system or rappel off crevasse lip</td></tr>
+</table>
+
+<!-- ── ROPE TEAMS ─────────────────────────────────────────────── -->
+<h2>Rope Team and Glacier / Crevasse Plan</h2>
+<div class="alert info">
+  <strong>Configuration: 1 rope, all 4 climbers. Leader – B (middle) – C (middle) – Tail.</strong>
+  Butterfly knots at B and C. Figure-8 or clove hitch at ends. Spacing: 15 m between climbers (45 m active + 7.5 m coiled each end = 60 m). Rescue reserve sufficient for 3:1 haul with 5 m crevasse depth.
+</div>
+
+<table>
+  <tr><th>Position</th><th>Role</th><th>Crevasse kit</th></tr>
+  <tr><td>Leader (front)</td><td>Navigation lead; sets line up the cleaver and through crevasses</td><td>Rescuer kit</td></tr>
+  <tr><td>Climber B</td><td>Middle tie-in; butterfly knot</td><td>Middle tie-in kit</td></tr>
+  <tr><td>Climber C</td><td>Middle tie-in; butterfly knot</td><td>Middle tie-in kit</td></tr>
+  <tr><td>Tail</td><td>Rear anchor; second rescuer</td><td>Rescuer kit</td></tr>
+</table>
+
+<table style="margin-top:10px">
+  <tr><td>Rope-up point</td><td><strong>Camp Muir, before the 12:10 AM departure</strong> — the Cowlitz crossing is crevassed</td></tr>
+  <tr><td>Rope-off point</td><td>Camp Muir on return — not before. Ice-rock interfaces at Muir are active crevasse zones.</td></tr>
+  <tr><td>On the cleaver</td><td>Rock/mixed: keep the rope managed and short; one moving at a time on loose sections; no rope stacked where rockfall can sweep it.</td></tr>
+  <tr><td>Bridges (above cleaver)</td><td>One at a time; team braced and arrested, rope taut. Probe suspect bridges before committing. Reroute if hollow/sagging.</td></tr>
+  <tr><td>Crevasse fall response</td><td>Arrest; brace; stop. Build equalized 2-picket anchor (firm snow holds well). Middle self-rescues (chest harness + foot loop + prusiks); rescuer builds 3:1 haul. inReach SOS if self-rescue fails or patient injured.</td></tr>
+  <tr><td>If leader incapacitated</td><td>Stop; anchor rope; inReach SOS; signal other parties; insulate patient</td></tr>
+  <tr><td>Navigation</td><td><strong>Record GPS ascent track; descend on it.</strong> Paper topo + compass + altimeter backup. Whiteout bearings written at Camp Muir.</td></tr>
+  <tr><td>Other teams</td><td>Guided teams (RMI / AAI / IMG) likely on the DC — yield at the cleaver and bottlenecks. Their wands are not your route; follow your own track.</td></tr>
+</table>
+
+<!-- ── EMERGENCY PROTOCOL ─────────────────────────────────────── -->
+<h2>Emergency Protocol</h2>
+<table>
+  <tr><th style="text-align:right;width:40px">Step</th><th>Action</th></tr>
+  <tr><td style="text-align:right">1</td><td>Stop movement. Secure rope team. Protect from overhead hazard (cleaver rockfall, serac, slab).</td></tr>
+  <tr><td style="text-align:right">2</td><td>Administer first aid. Insulate patient from snow (pad + bivy + group shelter).</td></tr>
+  <tr><td style="text-align:right">3</td><td>Determine: self-rescue · assisted rescue (guided teams on route) · emergency callout.</td></tr>
+  <tr><td style="text-align:right">4</td><td><strong>Call 911</strong> if cell available. Otherwise <strong>activate inReach SOS.</strong> Provide: GPS coordinates · patient count · injuries · team size · weather · terrain · current actions.</td></tr>
+  <tr><td style="text-align:right">5</td><td>NPS Climbing Rangers: <strong>(360) 569-6641.</strong> Pierce County SAR via <strong>911.</strong> Notify home contact via satellite when stable.</td></tr>
+  <tr><td style="text-align:right">6</td><td>Helicopter response: clear LZ if terrain allows; secure loose gear; protect eyes/ears; await crew direction.</td></tr>
+</table>
+
+<!-- ── OPEN ITEMS ─────────────────────────────────────────────── -->
+<h2>Open Items</h2>
+<table>
+  <tr><th>Item</th><th>Owner</th><th>Due</th></tr>
+  <tr><td>Emergency contact sheet — all 4 climbers (paper copies; not committed to repo)</td><td>Leader</td><td>Jun 19, before departure</td></tr>
+  <tr><td>In-person registration at Paradise WIC (self-registration discontinued)</td><td>All</td><td><strong>Jun 19, by 5:00 PM</strong></td></tr>
+  <tr><td>Climbing fee $82/person via Pay.gov</td><td>Each climber</td><td>Before Jun 19</td></tr>
+  <tr><td>UW Rainier report re-check (4 AM issue) — <strong>decision check; Saturday enters summit table</strong></td><td>Leader</td><td>Jun 18 + Jun 19</td></tr>
+  <tr><td>NPS Climbing Blog re-check — newer DC route / surface report</td><td>Leader</td><td>Jun 18 + Jun 19, and before TH departure</td></tr>
+  <tr><td><code>dc-route-caltopo.gpx</code> verified against current boot pack; ID/DC junction + cleaver waypoints confirmed</td><td>Navigator</td><td>Jun 18</td></tr>
+  <tr><td>inReach — contacts + overdue <strong>10:00 PM Jun 20</strong> loaded; test message sent</td><td>Leader</td><td>Jun 18</td></tr>
+  <tr><td><strong>Steel crampons</strong> fitted and tested on all boots</td><td>Each climber</td><td>Before Jun 19</td></tr>
+  <tr><td>Road status verify (SR-706 / Paradise Rd)</td><td>Leader</td><td>Jun 19</td></tr>
+  <tr><td>Radio channel set; beacons transmit-checked ×4</td><td>Leader</td><td>Trailhead, ~7:30 PM</td></tr>
+  <tr><td>Water 3.5–4 L per person; cache bottle designated</td><td>Each climber</td><td>Jun 19</td></tr>
+  <tr><td>Crevasse haul sequence review</td><td>All</td><td>Jun 18</td></tr>
+  <tr><td>Offline maps + DC GPX on all devices</td><td>Each climber</td><td>Jun 19</td></tr>
+  <tr><td>Pre-trip dinner ~4:00–5:00 PM</td><td>Each climber</td><td>Jun 19</td></tr>
+</table>
+
+<div style="margin-top:40px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:#888;">
+  Revised June 16, 2026 · Mount Rainier National Park — Disappointment Cleaver · 4-person day push · Postponed from June 15 (heat / no refreeze) ·
+  Conditions must be re-verified June 19 (UW 4 AM issue + NPS blog) before departure. This plan does not substitute for field judgment.
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
